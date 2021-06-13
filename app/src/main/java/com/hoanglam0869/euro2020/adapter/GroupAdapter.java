@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hoanglam0869.euro2020.R;
@@ -37,6 +38,14 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder> 
         Group group = groupArrayList.get(position);
 
         holder.txvGroup.setText(group.getGroup());
+
+        TeamAdapter adapter = new TeamAdapter(context, group.getTeamArrayList());
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        holder.recyclerViewGroup.setLayoutManager(linearLayoutManager);
+
+        holder.recyclerViewGroup.setAdapter(adapter);
     }
 
     @Override
@@ -54,7 +63,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder> 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txvGroup = itemView.findViewById(R.id.txvGroupTable);
+            txvGroup = itemView.findViewById(R.id.txvTable);
             recyclerViewGroup = itemView.findViewById(R.id.recyclerViewGroup);
         }
     }

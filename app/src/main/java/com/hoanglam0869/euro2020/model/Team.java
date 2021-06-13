@@ -3,9 +3,9 @@ package com.hoanglam0869.euro2020.model;
 public class Team {
     private int id;
     private String group, team;
-    private int position, played, won, drawn, lost, forward, against, goalDif, points;
+    private int position, played, won, drawn, lost, forward, against, goalDifference, points;
 
-    public Team(int id, String group, String team, int position, int played, int won, int drawn, int lost, int forward, int against, int goalDif, int points) {
+    public Team(int id, String group, String team, int position, int played, int won, int drawn, int lost, int forward, int against, int goalDifference, int points) {
         this.id = id;
         this.group = group;
         this.team = team;
@@ -16,7 +16,7 @@ public class Team {
         this.lost = lost;
         this.forward = forward;
         this.against = against;
-        this.goalDif = goalDif;
+        this.goalDifference = goalDifference;
         this.points = points;
     }
 
@@ -110,12 +110,12 @@ public class Team {
         return this;
     }
 
-    public int getGoalDif() {
-        return goalDif;
+    public int getGoalDifference() {
+        return goalDifference;
     }
 
-    public Team setGoalDif(int goalDif) {
-        this.goalDif = goalDif;
+    public Team setGoalDifference(int goalDifference) {
+        this.goalDifference = goalDifference;
         return this;
     }
 

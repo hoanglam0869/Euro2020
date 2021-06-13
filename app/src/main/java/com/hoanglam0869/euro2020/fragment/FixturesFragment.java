@@ -35,6 +35,7 @@ public class FixturesFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+
         recyclerViewFixtures.setLayoutManager(linearLayoutManager);
         recyclerViewFixtures.setAdapter(adapter);
 
