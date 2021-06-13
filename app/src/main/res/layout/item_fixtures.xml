@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/txvRound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_bg"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Round"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txvDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Saturday"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#41000000" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txvGroup"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circle_bg"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txvStadium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Emirates"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txvTime"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_below="@id/txvStadium"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_below="@id/txvTime"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txvTeam1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center|end"
+                android:text="Turkey"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imgTeam1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:src="@drawable/turkey" />
+
+            <EditText
+                android:id="@+id/edtScore1"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_bg"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="1" />
+
+            <EditText
+                android:id="@+id/edtScore2"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_bg"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="1" />
+
+            <ImageView
+                android:id="@+id/imgTeam2"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:src="@drawable/italy" />
+
+            <TextView
+                android:id="@+id/txvTeam2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="Italy"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

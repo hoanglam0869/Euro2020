@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".fragment.MoreFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/select_time_zone"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spnTimeZone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Euro 2020</string>
+    <string name="fixtures">Lịch thi đấu</string>
+    <string name="table">Bảng xếp hạng</string>
+    <string name="team">Đội</string>
+    <string name="more">Thêm</string>
+    <string name="group">Bảng</string>
+    <string name="group_stage_matchday_1">Vòng bảng - Lượt 1</string>
+    <string name="group_stage_matchday_2">Vòng bảng - Lượt 2</string>
+    <string name="group_stage_matchday_3">Vòng bảng - Lượt 3</string>
+    <string name="round_of_16">Vòng 1/16</string>
+    <string name="quarter_finals">Tứ kết</string>
+    <string name="semi_finals">Bán kết</string>
+    <string name="final_match">Chung kết</string>
+    <string name="austria">Áo</string>
+    <string name="belgium">Bỉ</string>
+    <string name="croatia">Croatia</string>
+    <string name="czech_republic">Cộng Hòa Séc</string>
+    <string name="denmark">Đan Mạch</string>
+    <string name="england">Anh</string>
+    <string name="finland">Phần Lan</string>
+    <string name="france">Pháp</string>
+    <string name="germany">Đức</string>
+    <string name="hungary">Hungary</string>
+    <string name="italy">Ý</string>
+    <string name="netherlands">Hà Lan</string>
+    <string name="north_macedonia">Bắc Macedonia</string>
+    <string name="poland">Ba Lan</string>
+    <string name="portugal">Bồ Đào Nha</string>
+    <string name="russia">Nga</string>
+    <string name="scotland">Scotland</string>
+    <string name="slovakia">Slovakia</string>
+    <string name="spain">Tây Ban Nha</string>
+    <string name="sweden">Thụy Điển</string>
+    <string name="switzerland">Thụy Sĩ</string>
+    <string name="turkey">Thổ Nhĩ Kỳ</string>
+    <string name="ukraine">Ucraina</string>
+    <string name="wales">Xứ Wales</string>
+    <string name="select_time_zone">Chọn múi giờ</string>
+</resources>

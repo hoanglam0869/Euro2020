@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Euro 2020</string>
+    <string name="fixtures">Fixtures</string>
+    <string name="table">Table</string>
+    <string name="team">Team</string>
+    <string name="more">More</string>
+    <string name="group">Group</string>
+    <string name="group_stage_matchday_1">Group stage - Matchday 1</string>
+    <string name="group_stage_matchday_2">Group stage - Matchday 2</string>
+    <string name="group_stage_matchday_3">Group stage - Matchday 3</string>
+    <string name="round_of_16">Round of 16</string>
+    <string name="quarter_finals">Quarter finals</string>
+    <string name="semi_finals">Semi finals</string>
+    <string name="final_match">Final</string>
+
+    <string name="austria">Austria</string>
+    <string name="belgium">Belgium</string>
+    <string name="croatia">Croatia</string>
+    <string name="czech_republic">Czech Republic</string>
+    <string name="denmark">Denmark</string>
+    <string name="england">England</string>
+    <string name="finland">Finland</string>
+    <string name="france">France</string>
+    <string name="germany">Germany</string>
+    <string name="hungary">Hungary</string>
+    <string name="italy">Italy</string>
+    <string name="netherlands">Netherlands</string>
+    <string name="north_macedonia">North Macedonia</string>
+    <string name="poland">Poland</string>
+    <string name="portugal">Portugal</string>
+    <string name="russia">Russia</string>
+    <string name="scotland">Scotland</string>
+    <string name="slovakia">Slovakia</string>
+    <string name="spain">Spain</string>
+    <string name="sweden">Sweden</string>
+    <string name="switzerland">Switzerland</string>
+    <string name="turkey">Turkey</string>
+    <string name="ukraine">Ukraine</string>
+    <string name="wales">Wales</string>
+
+    <string-array name="teams">
+        <item>@string/austria</item>
+        <item>@string/belgium</item>
+        <item>@string/croatia</item>
+        <item>@string/czech_republic</item>
+        <item>@string/denmark</item>
+        <item>@string/england</item>
+        <item>@string/finland</item>
+        <item>@string/france</item>
+        <item>@string/germany</item>
+        <item>@string/hungary</item>
+        <item>@string/italy</item>
+        <item>@string/netherlands</item>
+        <item>@string/north_macedonia</item>
+        <item>@string/poland</item>
+        <item>@string/portugal</item>
+        <item>@string/russia</item>
+        <item>@string/scotland</item>
+        <item>@string/slovakia</item>
+        <item>@string/spain</item>
+        <item>@string/sweden</item>
+        <item>@string/switzerland</item>
+        <item>@string/turkey</item>
+        <item>@string/ukraine</item>
+        <item>@string/wales</item>
+    </string-array>
+    <string name="select_time_zone">Select time zone</string>
+</resources>

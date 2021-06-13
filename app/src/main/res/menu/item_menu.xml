@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fixtures"
+        android:icon="@drawable/fixtures"
+        android:title="@string/fixtures" />
+
+    <item
+        android:id="@+id/table"
+        android:icon="@drawable/table"
+        android:title="@string/table" />
+
+    <item
+        android:id="@+id/team"
+        android:icon="@drawable/team"
+        android:title="@string/team" />
+
+    <item
+        android:id="@+id/more"
+        android:icon="@drawable/more"
+        android:title="@string/more" />
+</menu>
