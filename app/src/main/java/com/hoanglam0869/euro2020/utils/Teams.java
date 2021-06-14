@@ -5,9 +5,9 @@ import android.content.Context;
 import com.hoanglam0869.euro2020.R;
 
 public class Teams {
-    public static final String[] teams = {"Austria", "Belgium", "Croatia", "Czech Republic", "Denmark", "England", "Finland", "France",
-            "Germany", "Hungary", "Italy", "Netherlands", "North Macedonia", "Poland", "Portugal", "Russia",
-            "Scotland", "Slovakia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "Wales"};
+    public static final String[] teams = {"Italy", "Switzerland", "Turkey", "Wales", "Belgium", "Denmark", "Finland", "Russia",
+            "Austria", "Netherlands", "North Macedonia", "Ukraine", "Croatia", "Czech Republic", "England", "Scotland",
+            "Poland", "Slovakia", "Spain", "Sweden", "France", "Germany", "Hungary", "Portugal"};
 
     public static String getTeamName(Context context, String team) {
         int position = 0;

@@ -37,7 +37,8 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Group group = groupArrayList.get(position);
 
-        holder.txvGroup.setText(group.getGroup());
+        String content = context.getResources().getString(R.string.group) + " " + group.getGroup();
+        holder.txvGroup.setText(content);
 
         TeamAdapter adapter = new TeamAdapter(context, group.getTeamArrayList());
 

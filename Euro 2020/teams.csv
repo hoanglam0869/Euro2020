@@ -1,25 +1,25 @@
-id,group,image,team,position,played,won,drawn,lost,for,against,goaldifference,points
-1,A,,Italy,1,0,0,0,0,0,0,0,0
-2,A,,Switzerland,2,0,0,0,0,0,0,0,0
-3,A,,Turkey,3,0,0,0,0,0,0,0,0
-4,A,,Wales,4,0,0,0,0,0,0,0,0
-5,B,,Belgium,1,0,0,0,0,0,0,0,0
-6,B,,Denmark,2,0,0,0,0,0,0,0,0
-7,B,,Finland,3,0,0,0,0,0,0,0,0
-8,B,,Russia,4,0,0,0,0,0,0,0,0
-9,C,,Austria,1,0,0,0,0,0,0,0,0
-10,C,,Netherlands,2,0,0,0,0,0,0,0,0
-11,C,,North Macedonia,3,0,0,0,0,0,0,0,0
-12,C,,Ukraine,4,0,0,0,0,0,0,0,0
-13,D,,Croatia,1,0,0,0,0,0,0,0,0
-14,D,,Czech Republic,2,0,0,0,0,0,0,0,0
-15,D,,England,3,0,0,0,0,0,0,0,0
-16,D,,Scotland,4,0,0,0,0,0,0,0,0
-17,E,,Poland,1,0,0,0,0,0,0,0,0
-18,E,,Slovakia,2,0,0,0,0,0,0,0,0
-19,E,,Spain,3,0,0,0,0,0,0,0,0
-20,E,,Sweden,4,0,0,0,0,0,0,0,0
-21,F,,France,1,0,0,0,0,0,0,0,0
-22,F,,Germany,2,0,0,0,0,0,0,0,0
-23,F,,Hungary,3,0,0,0,0,0,0,0,0
-24,F,,Portugal,4,0,0,0,0,0,0,0,0
+id,grouptable,team,won,drawn,lost,for,against,points
+1,A,Italy,0,0,0,0,0,0
+2,A,Switzerland,0,0,0,0,0,0
+3,A,Turkey,0,0,0,0,0,0
+4,A,Wales,0,0,0,0,0,0
+5,B,Belgium,0,0,0,0,0,0
+6,B,Denmark,0,0,0,0,0,0
+7,B,Finland,0,0,0,0,0,0
+8,B,Russia,0,0,0,0,0,0
+9,C,Austria,0,0,0,0,0,0
+10,C,Netherlands,0,0,0,0,0,0
+11,C,North Macedonia,0,0,0,0,0,0
+12,C,Ukraine,0,0,0,0,0,0
+13,D,Croatia,0,0,0,0,0,0
+14,D,Czech Republic,0,0,0,0,0,0
+15,D,England,0,0,0,0,0,0
+16,D,Scotland,0,0,0,0,0,0
+17,E,Poland,0,0,0,0,0,0
+18,E,Slovakia,0,0,0,0,0,0
+19,E,Spain,0,0,0,0,0,0
+20,E,Sweden,0,0,0,0,0,0
+21,F,France,0,0,0,0,0,0
+22,F,Germany,0,0,0,0,0,0
+23,F,Hungary,0,0,0,0,0,0
+24,F,Portugal,0,0,0,0,0,0

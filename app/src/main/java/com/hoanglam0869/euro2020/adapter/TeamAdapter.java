@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hoanglam0869.euro2020.R;
 import com.hoanglam0869.euro2020.model.Team;
 import com.hoanglam0869.euro2020.utils.Flags;
+import com.hoanglam0869.euro2020.utils.Teams;
 
 import java.util.ArrayList;
 
@@ -40,16 +41,16 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
         Team team = teamArrayList.get(position);
 
         holder.imgTeam.setImageResource(Flags.getFlag(team.getTeam()));
-        holder.txvTeam.setText(team.getTeam());
+        holder.txvTeam.setText(Teams.getTeamName(context, team.getTeam()));
 
-        holder.txvPlayed.setText(String.valueOf(team.getPlayed()));
+        holder.txvPlayed.setText(String.valueOf(team.getWon() + team.getDrawn() + team.getLost()));
         holder.txvWon.setText(String.valueOf(team.getWon()));
         holder.txvDrawn.setText(String.valueOf(team.getDrawn()));
         holder.txvLost.setText(String.valueOf(team.getLost()));
         holder.txvForward.setText(String.valueOf(team.getForward()));
         holder.txvAgainst.setText(String.valueOf(team.getAgainst()));
-        holder.txvGoalDifference.setText(String.valueOf(team.getGoalDifference()));
-        holder.txvPoints.setText(String.valueOf(team.getPoints()));
+        holder.txvGoalDifference.setText(String.valueOf(team.getForward() - team.getAgainst()));
+        holder.txvPoints.setText(String.valueOf(team.getWon() * 3 + team.getDrawn()));
 
         if (position == 0) {
             holder.layoutTitle.setVisibility(View.VISIBLE);

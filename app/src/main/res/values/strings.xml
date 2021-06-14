@@ -39,30 +39,30 @@
     <string name="wales">Wales</string>
 
     <string-array name="teams">
-        <item>@string/austria</item>
-        <item>@string/belgium</item>
-        <item>@string/croatia</item>
-        <item>@string/czech_republic</item>
-        <item>@string/denmark</item>
-        <item>@string/england</item>
-        <item>@string/finland</item>
-        <item>@string/france</item>
-        <item>@string/germany</item>
-        <item>@string/hungary</item>
         <item>@string/italy</item>
+        <item>@string/switzerland</item>
+        <item>@string/turkey</item>
+        <item>@string/wales</item>
+        <item>@string/belgium</item>
+        <item>@string/denmark</item>
+        <item>@string/finland</item>
+        <item>@string/russia</item>
+        <item>@string/austria</item>
         <item>@string/netherlands</item>
         <item>@string/north_macedonia</item>
-        <item>@string/poland</item>
-        <item>@string/portugal</item>
-        <item>@string/russia</item>
+        <item>@string/ukraine</item>
+        <item>@string/croatia</item>
+        <item>@string/czech_republic</item>
+        <item>@string/england</item>
         <item>@string/scotland</item>
+        <item>@string/poland</item>
         <item>@string/slovakia</item>
         <item>@string/spain</item>
         <item>@string/sweden</item>
-        <item>@string/switzerland</item>
-        <item>@string/turkey</item>
-        <item>@string/ukraine</item>
-        <item>@string/wales</item>
+        <item>@string/france</item>
+        <item>@string/germany</item>
+        <item>@string/hungary</item>
+        <item>@string/portugal</item>
     </string-array>
     <string name="select_time_zone">Select time zone</string>
 </resources>

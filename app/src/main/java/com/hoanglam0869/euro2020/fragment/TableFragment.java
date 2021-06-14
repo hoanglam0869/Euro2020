@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.R;
 import com.hoanglam0869.euro2020.adapter.GroupAdapter;
+import com.hoanglam0869.euro2020.database.DBHelper;
 import com.hoanglam0869.euro2020.model.Group;
 
 import java.util.ArrayList;
@@ -28,6 +29,20 @@ public class TableFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_table, container, false);
 
         recyclerViewTable = view.findViewById(R.id.recyclerViewTable);
+
+        /*MainActivity.groupA.clear();
+        MainActivity.groupB.clear();
+        MainActivity.groupC.clear();
+        MainActivity.groupD.clear();
+        MainActivity.groupE.clear();
+        MainActivity.groupF.clear();*/
+
+        MainActivity.groupA = DBHelper.getTeams(getActivity(), "A");
+        MainActivity.groupB = DBHelper.getTeams(getActivity(), "B");
+        MainActivity.groupC = DBHelper.getTeams(getActivity(), "C");
+        MainActivity.groupD = DBHelper.getTeams(getActivity(), "D");
+        MainActivity.groupE = DBHelper.getTeams(getActivity(), "E");
+        MainActivity.groupF = DBHelper.getTeams(getActivity(), "F");
 
         groupArrayList = new ArrayList<>();
         groupArrayList.add(new Group("A", MainActivity.groupA));

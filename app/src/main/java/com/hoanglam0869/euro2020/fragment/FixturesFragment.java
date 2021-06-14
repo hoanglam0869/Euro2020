@@ -31,6 +31,8 @@ public class FixturesFragment extends Fragment {
 
         recyclerViewFixtures = view.findViewById(R.id.recyclerViewFixtures);
 
+        MainActivity.fixturesArrayList = DBHelper.getFixtures(getActivity());
+
         adapter = new FixturesAdapter(getContext(), MainActivity.fixturesArrayList);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());

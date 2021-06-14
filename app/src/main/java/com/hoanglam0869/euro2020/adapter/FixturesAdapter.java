@@ -23,6 +23,7 @@ import com.hoanglam0869.euro2020.utils.TimeZone;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHolder> {
 
@@ -35,9 +36,9 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         this.context = context;
         this.fixturesArrayList = fixturesArrayList;
 
-        formatOnlyDate = new SimpleDateFormat("dd");
-        formatDate = new SimpleDateFormat("EEEEE dd MMM yyyy");
-        formatTime = new SimpleDateFormat("HH:mm");
+        formatOnlyDate = new SimpleDateFormat("dd", Locale.getDefault());
+        formatDate = new SimpleDateFormat("EEEEE dd MMM yyyy", Locale.getDefault());
+        formatTime = new SimpleDateFormat("HH:mm", Locale.getDefault());
     }
 
     @NonNull
@@ -175,6 +176,9 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                         fixturesArrayList.get(getAdapterPosition()).setScore1(-1);
                         fixturesArrayList.get(getAdapterPosition()).setScore2(-1);
                         DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
+
+                        DBHelper.updateTeam((MainActivity) context, fixturesArrayList.get(getAdapterPosition()).getTeam1());
+                        DBHelper.updateTeam((MainActivity) context, fixturesArrayList.get(getAdapterPosition()).getTeam2());
                     }
                 }
 
@@ -201,6 +205,9 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                         fixturesArrayList.get(getAdapterPosition()).setScore1(-1);
                         fixturesArrayList.get(getAdapterPosition()).setScore2(-1);
                         DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
+
+                        DBHelper.updateTeam((MainActivity) context, fixturesArrayList.get(getAdapterPosition()).getTeam1());
+                        DBHelper.updateTeam((MainActivity) context, fixturesArrayList.get(getAdapterPosition()).getTeam2());
                     }
                 }
 

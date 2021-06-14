@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         anhXa();
         actionBar();
         setTimeZone();
-        getFixtures();
-        getTeamInGroup();
+        //getFixtures();
+        //getTeamInGroup();
         setupSmoothBottomMenu();
     }
 
@@ -108,13 +108,6 @@ public class MainActivity extends AppCompatActivity {
     private void anhXa() {
         toolbar = findViewById(R.id.toolBar);
         bottomBar = findViewById(R.id.bottomBar);
-
-        groupA = new ArrayList<>();
-        groupB = new ArrayList<>();
-        groupC = new ArrayList<>();
-        groupD = new ArrayList<>();
-        groupE = new ArrayList<>();
-        groupF = new ArrayList<>();
     }
 
     private void replaceFragment(int titleId, Fragment fragment) {
@@ -154,8 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        int played = won + drawn + lost;
-        int points = won * 3 + drawn;
-        return new Team(id, group, team, 1, played, won, drawn, lost, forward, against, forward - against, points);
+        int points = (won * 3 + drawn) * 10000 + (forward - against) * 100 + forward;
+        return new Team(id, group, team, won, drawn, lost, forward, against, points);
     }
 }

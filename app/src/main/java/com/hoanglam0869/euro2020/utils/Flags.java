@@ -1,34 +1,33 @@
 package com.hoanglam0869.euro2020.utils;
 
-import android.content.Context;
-
 import com.hoanglam0869.euro2020.R;
 
 public class Flags {
-    public static final int[] flags = {R.drawable.austria,
-            R.drawable.belgium,
-            R.drawable.croatia,
-            R.drawable.czech_republic,
-            R.drawable.denmark,
-            R.drawable.england,
-            R.drawable.finland,
-            R.drawable.france,
-            R.drawable.germany,
-            R.drawable.hungary,
+    public static final int[] flags = {
             R.drawable.italy,
+            R.drawable.switzerland,
+            R.drawable.turkey,
+            R.drawable.wales,
+            R.drawable.belgium,
+            R.drawable.denmark,
+            R.drawable.finland,
+            R.drawable.russia,
+            R.drawable.austria,
             R.drawable.netherlands,
             R.drawable.north_macedonia,
-            R.drawable.poland,
-            R.drawable.portugal,
-            R.drawable.russia,
+            R.drawable.ukraine,
+            R.drawable.croatia,
+            R.drawable.czech_republic,
+            R.drawable.england,
             R.drawable.scotland,
+            R.drawable.poland,
             R.drawable.slovakia,
             R.drawable.spain,
             R.drawable.sweden,
-            R.drawable.switzerland,
-            R.drawable.turkey,
-            R.drawable.ukraine,
-            R.drawable.wales};
+            R.drawable.france,
+            R.drawable.germany,
+            R.drawable.hungary,
+            R.drawable.portugal};
 
     public static int getFlag(String team) {
         int position = 0;
