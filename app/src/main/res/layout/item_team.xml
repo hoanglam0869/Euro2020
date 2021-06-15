@@ -57,25 +57,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="F"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="A"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="GD"
+            android:text="F-A"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -90,15 +72,15 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-        <View
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#40000000" />
 
     <LinearLayout
-android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -166,27 +148,7 @@ android:layout_marginTop="5dp"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txvForward"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="0"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/txvAgainst"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="0"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/txvGoalDifference"
+            android:id="@+id/txvForward_Against"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

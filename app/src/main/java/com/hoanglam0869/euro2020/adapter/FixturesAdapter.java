@@ -174,11 +174,9 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                         }
                     } else {
                         fixturesArrayList.get(getAdapterPosition()).setScore1(-1);
-                        fixturesArrayList.get(getAdapterPosition()).setScore2(-1);
                         DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
 
-                        DBHelper.updateTeam((MainActivity) context, fixturesArrayList.get(getAdapterPosition()).getTeam1());
-                        DBHelper.updateTeam((MainActivity) context, fixturesArrayList.get(getAdapterPosition()).getTeam2());
+                        //DBHelper.updateTeam((MainActivity) context);
                     }
                 }
 
@@ -202,12 +200,10 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                             DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
                         }
                     } else {
-                        fixturesArrayList.get(getAdapterPosition()).setScore1(-1);
                         fixturesArrayList.get(getAdapterPosition()).setScore2(-1);
                         DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
 
-                        DBHelper.updateTeam((MainActivity) context, fixturesArrayList.get(getAdapterPosition()).getTeam1());
-                        DBHelper.updateTeam((MainActivity) context, fixturesArrayList.get(getAdapterPosition()).getTeam2());
+                        //DBHelper.updateTeam((MainActivity) context);
                     }
                 }
 
