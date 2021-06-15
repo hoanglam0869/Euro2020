@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     SmoothBottomBar bottomBar;
 
     public static ArrayList<Fixtures> fixturesArrayList;
+    public static ArrayList<Team> teamArrayList;
     public static ArrayList<Team> groupA;
     public static ArrayList<Team> groupB;
     public static ArrayList<Team> groupC;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         anhXa();
         actionBar();
         setTimeZone();
+        getTeams();
         //getFixtures();
         //getTeamInGroup();
         setupSmoothBottomMenu();
@@ -94,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void getFixtures() {
         fixturesArrayList = DBHelper.getFixtures(this);
+    }
+
+    private void getTeams() {
+        teamArrayList = DBHelper.getTeams(this);
     }
 
     private void setTimeZone() {
@@ -149,5 +155,46 @@ public class MainActivity extends AppCompatActivity {
         }
         int points = (won * 3 + drawn) * 10000 + (forward - against) * 100 + forward;
         return new Team(id, group, team, won, drawn, lost, forward, against, points);
+    }
+
+    public void updateTeam() {
+        fixturesArrayList = DBHelper.getFixtures(this);
+        for (int i = 0; i < teamArrayList.size(); i++) {
+            int won = 0, drawn = 0, lost = 0, forward = 0, against = 0, points;
+            for (int j = 0; j < fixturesArrayList.size(); j++) {
+                if (fixturesArrayList.get(j).getScore1() != -1 && fixturesArrayList.get(j).getScore2() != -1) {
+                    if (teamArrayList.get(i).getTeam().equals(fixturesArrayList.get(j).getTeam1())) {
+                        if (fixturesArrayList.get(j).getScore1() > fixturesArrayList.get(j).getScore2()) {
+                            won++;
+                        } else if (fixturesArrayList.get(j).getScore1() < fixturesArrayList.get(j).getScore2()) {
+                            lost++;
+                        } else {
+                            drawn++;
+                        }
+                        forward += fixturesArrayList.get(j).getScore1();
+                        against += fixturesArrayList.get(j).getScore2();
+                    }
+                    if (teamArrayList.get(i).getTeam().equals(fixturesArrayList.get(j).getTeam2())) {
+                        if (fixturesArrayList.get(j).getScore1() < fixturesArrayList.get(j).getScore2()) {
+                            won++;
+                        } else if (fixturesArrayList.get(j).getScore1() > fixturesArrayList.get(j).getScore2()) {
+                            lost++;
+                        } else {
+                            drawn++;
+                        }
+                        forward += fixturesArrayList.get(j).getScore2();
+                        against += fixturesArrayList.get(j).getScore1();
+                    }
+                }
+            }
+            points = (won * 3 + drawn) * 1000000 + (forward - against) * 10000 + forward * 100 - teamArrayList.get(i).getId();
+
+            teamArrayList.get(i).setWon(won);
+            teamArrayList.get(i).setDrawn(drawn);
+            teamArrayList.get(i).setLost(lost);
+            teamArrayList.get(i).setForward(forward);
+            teamArrayList.get(i).setAgainst(against);
+            teamArrayList.get(i).setPoints(points);
+        }
     }
 }

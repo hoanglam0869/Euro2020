@@ -30,6 +30,8 @@ public class TableFragment extends Fragment {
 
         recyclerViewTable = view.findViewById(R.id.recyclerViewTable);
 
+        DBHelper.updateTeam(getActivity());
+
         /*MainActivity.groupA.clear();
         MainActivity.groupB.clear();
         MainActivity.groupC.clear();
@@ -37,12 +39,12 @@ public class TableFragment extends Fragment {
         MainActivity.groupE.clear();
         MainActivity.groupF.clear();*/
 
-        MainActivity.groupA = DBHelper.getTeams(getActivity(), "A");
-        MainActivity.groupB = DBHelper.getTeams(getActivity(), "B");
-        MainActivity.groupC = DBHelper.getTeams(getActivity(), "C");
-        MainActivity.groupD = DBHelper.getTeams(getActivity(), "D");
-        MainActivity.groupE = DBHelper.getTeams(getActivity(), "E");
-        MainActivity.groupF = DBHelper.getTeams(getActivity(), "F");
+        MainActivity.groupA = DBHelper.getTeamsByGroup(getActivity(), "A");
+        MainActivity.groupB = DBHelper.getTeamsByGroup(getActivity(), "B");
+        MainActivity.groupC = DBHelper.getTeamsByGroup(getActivity(), "C");
+        MainActivity.groupD = DBHelper.getTeamsByGroup(getActivity(), "D");
+        MainActivity.groupE = DBHelper.getTeamsByGroup(getActivity(), "E");
+        MainActivity.groupF = DBHelper.getTeamsByGroup(getActivity(), "F");
 
         groupArrayList = new ArrayList<>();
         groupArrayList.add(new Group("A", MainActivity.groupA));

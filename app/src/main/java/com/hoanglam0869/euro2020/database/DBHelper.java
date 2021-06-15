@@ -5,8 +5,10 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.model.Fixtures;
 import com.hoanglam0869.euro2020.model.Team;
+import com.hoanglam0869.euro2020.utils.Teams;
 
 import java.util.ArrayList;
 
@@ -67,9 +69,9 @@ public class DBHelper {
         database.update(FIXTURES_TABLE, contentValues, "id = ?", new String[]{fixtures.getId() + ""});
     }
 
-    public static void updateTeam(Activity activity, String team) {
+    public static void updateTeam(Activity activity) {
         SQLiteDatabase database = Database.initDatabase(activity, DATABASE_NAME);
-        Cursor cursor = database.rawQuery("SELECT * FROM " + FIXTURES_TABLE + " WHERE team1='" + team + "' AND id < 37 OR team2='" + team + "' AND id < 37", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM " + FIXTURES_TABLE + " WHERE id < 37", null);
 
         ArrayList<Fixtures> fixturesArrayList = new ArrayList<>();
         while (cursor.moveToNext()) {
@@ -79,49 +81,72 @@ public class DBHelper {
                     cursor.getString(8), cursor.getString(9)));
         }
 
-        int won = 0, drawn = 0, lost = 0, forward = 0, against = 0, points;
-        for (int i = 0; i < fixturesArrayList.size(); i++) {
-            if (fixturesArrayList.get(i).getScore1() != -1 && fixturesArrayList.get(i).getScore2() != -1) {
-                if (team.equals(fixturesArrayList.get(i).getTeam1())) {
-                    if (fixturesArrayList.get(i).getScore1() > fixturesArrayList.get(i).getScore2()) {
-                        won++;
-                    } else if (fixturesArrayList.get(i).getScore1() < fixturesArrayList.get(i).getScore2()) {
-                        lost++;
-                    } else {
-                        drawn++;
+        for (int i = 0; i < MainActivity.teamArrayList.size(); i++) {
+            int won = 0, drawn = 0, lost = 0, forward = 0, against = 0, points;
+            for (int j = 0; j < fixturesArrayList.size(); j++) {
+                if (fixturesArrayList.get(j).getScore1() != -1 && fixturesArrayList.get(j).getScore2() != -1) {
+                    if (MainActivity.teamArrayList.get(i).getTeam().equals(fixturesArrayList.get(j).getTeam1())) {
+                        if (fixturesArrayList.get(j).getScore1() > fixturesArrayList.get(j).getScore2()) {
+                            won++;
+                        } else if (fixturesArrayList.get(j).getScore1() < fixturesArrayList.get(j).getScore2()) {
+                            lost++;
+                        } else {
+                            drawn++;
+                        }
+                        forward += fixturesArrayList.get(j).getScore1();
+                        against += fixturesArrayList.get(j).getScore2();
                     }
-                    forward += fixturesArrayList.get(i).getScore1();
-                    against += fixturesArrayList.get(i).getScore2();
-                }
-                if (team.equals(fixturesArrayList.get(i).getTeam2())) {
-                    if (fixturesArrayList.get(i).getScore1() < fixturesArrayList.get(i).getScore2()) {
-                        won++;
-                    } else if (fixturesArrayList.get(i).getScore1() > fixturesArrayList.get(i).getScore2()) {
-                        lost++;
-                    } else {
-                        drawn++;
+                    if (MainActivity.teamArrayList.get(i).getTeam().equals(fixturesArrayList.get(j).getTeam2())) {
+                        if (fixturesArrayList.get(j).getScore1() < fixturesArrayList.get(j).getScore2()) {
+                            won++;
+                        } else if (fixturesArrayList.get(j).getScore1() > fixturesArrayList.get(j).getScore2()) {
+                            lost++;
+                        } else {
+                            drawn++;
+                        }
+                        forward += fixturesArrayList.get(j).getScore2();
+                        against += fixturesArrayList.get(j).getScore1();
                     }
-                    forward += fixturesArrayList.get(i).getScore2();
-                    against += fixturesArrayList.get(i).getScore1();
                 }
             }
+            points = (won * 3 + drawn) * 1000000 + (forward - against) * 10000 + forward * 100 - MainActivity.teamArrayList.get(i).getId();
+
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(WON_COLUMN, won);
+            contentValues.put(DRAWN_COLUMN, drawn);
+            contentValues.put(LOST_COLUMN, lost);
+            contentValues.put(FORWARD_COLUMN, forward);
+            contentValues.put(AGAINST_COLUMN, against);
+            contentValues.put(POINTS_COLUMN, points);
+
+            database.update(TEAMS_TABLE, contentValues, "team = ?", new String[]{MainActivity.teamArrayList.get(i).getTeam()});
         }
-        points = (won * 3 + drawn) * 10000 + (forward - against) * 100 + forward;
 
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(WON_COLUMN, won);
-        contentValues.put(DRAWN_COLUMN, drawn);
-        contentValues.put(LOST_COLUMN, lost);
-        contentValues.put(FORWARD_COLUMN, forward);
-        contentValues.put(AGAINST_COLUMN, against);
-        contentValues.put(POINTS_COLUMN, points);
-
-        database.update(TEAMS_TABLE, contentValues, "team = ?", new String[]{team + ""});
+        /*MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setWon(won);
+        MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setDrawn(drawn);
+        MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setLost(lost);
+        MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setForward(forward);
+        MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setAgainst(against);
+        MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setPoints(points);*/
     }
 
-    public static ArrayList<Team> getTeams(Activity activity, String group) {
+    public static ArrayList<Team> getTeamsByGroup(Activity activity, String group) {
         SQLiteDatabase database = Database.initDatabase(activity, DATABASE_NAME);
         Cursor cursor = database.rawQuery("SELECT * FROM " + TEAMS_TABLE + " WHERE grouptable='" + group + "' ORDER BY points DESC", null);
+
+        ArrayList<Team> teamArrayList = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            teamArrayList.add(new Team(cursor.getInt(0), cursor.getString(1),
+                    cursor.getString(2), cursor.getInt(3), cursor.getInt(4),
+                    cursor.getInt(5), cursor.getInt(6), cursor.getInt(7),
+                    cursor.getInt(8)));
+        }
+        return teamArrayList;
+    }
+
+    public static ArrayList<Team> getTeams(Activity activity) {
+        SQLiteDatabase database = Database.initDatabase(activity, DATABASE_NAME);
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TEAMS_TABLE, null);
 
         ArrayList<Team> teamArrayList = new ArrayList<>();
         while (cursor.moveToNext()) {

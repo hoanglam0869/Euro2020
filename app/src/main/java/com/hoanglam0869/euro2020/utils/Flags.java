@@ -1,5 +1,6 @@
 package com.hoanglam0869.euro2020.utils;
 
+import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.R;
 
 public class Flags {
@@ -31,8 +32,8 @@ public class Flags {
 
     public static int getFlag(String team) {
         int position = 0;
-        for (int i = 0; i < Teams.teams.length; i++) {
-            if (team.equals(Teams.teams[i])) {
+        for (int i = 0; i < MainActivity.teamArrayList.size(); i++) {
+            if (team.equals(MainActivity.teamArrayList.get(i).getTeam())) {
                 position = i;
                 break;
             }

@@ -47,9 +47,8 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
         holder.txvWon.setText(String.valueOf(team.getWon()));
         holder.txvDrawn.setText(String.valueOf(team.getDrawn()));
         holder.txvLost.setText(String.valueOf(team.getLost()));
-        holder.txvForward.setText(String.valueOf(team.getForward()));
-        holder.txvAgainst.setText(String.valueOf(team.getAgainst()));
-        holder.txvGoalDifference.setText(String.valueOf(team.getForward() - team.getAgainst()));
+        String content = team.getForward() + "-" + team.getAgainst();
+        holder.txvForward_Against.setText(content);
         holder.txvPoints.setText(String.valueOf(team.getWon() * 3 + team.getDrawn()));
 
         if (position == 0) {
@@ -69,7 +68,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgTeam;
-        TextView txvTeam, txvPlayed, txvWon, txvDrawn, txvLost, txvForward, txvAgainst, txvGoalDifference, txvPoints;
+        TextView txvTeam, txvPlayed, txvWon, txvDrawn, txvLost, txvForward_Against, txvPoints;
         LinearLayout layoutTitle;
 
         public ViewHolder(@NonNull View itemView) {
@@ -82,9 +81,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
             txvWon = itemView.findViewById(R.id.txvWon);
             txvDrawn = itemView.findViewById(R.id.txvDrawn);
             txvLost = itemView.findViewById(R.id.txvLost);
-            txvForward = itemView.findViewById(R.id.txvForward);
-            txvAgainst = itemView.findViewById(R.id.txvAgainst);
-            txvGoalDifference = itemView.findViewById(R.id.txvGoalDifference);
+            txvForward_Against = itemView.findViewById(R.id.txvForward_Against);
             txvPoints = itemView.findViewById(R.id.txvPoints);
 
             layoutTitle = itemView.findViewById(R.id.layoutTitle);
