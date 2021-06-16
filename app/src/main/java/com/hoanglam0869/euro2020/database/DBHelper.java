@@ -121,13 +121,6 @@ public class DBHelper {
 
             database.update(TEAMS_TABLE, contentValues, "team = ?", new String[]{MainActivity.teamArrayList.get(i).getTeam()});
         }
-
-        /*MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setWon(won);
-        MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setDrawn(drawn);
-        MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setLost(lost);
-        MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setForward(forward);
-        MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setAgainst(against);
-        MainActivity.teamArrayList.get(Teams.getPositionByTeam(team)).setPoints(points);*/
     }
 
     public static ArrayList<Team> getTeamsByGroup(Activity activity, String group) {

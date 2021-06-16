@@ -65,4 +65,5 @@
         <item>@string/portugal</item>
     </string-array>
     <string name="select_time_zone">Select time zone</string>
+    <string name="ranking_of_third_placed_teams">Ranking of third-placed teams</string>
 </resources>

@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Team> groupD;
     public static ArrayList<Team> groupE;
     public static ArrayList<Team> groupF;
+    public static ArrayList<Team> groupThirdPlaced;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
         actionBar();
         setTimeZone();
         getTeams();
-        //getFixtures();
-        //getTeamInGroup();
         setupSmoothBottomMenu();
     }
 
@@ -76,28 +75,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getTeamInGroup() {
-        for (int i = 0; i < Teams.teams.length; i++) {
-            if (i < 4) {
-                groupA.add(getTeam(i + 1, "A", Teams.teams[i]));
-            } else if (i < 8) {
-                groupB.add(getTeam(i + 1, "B", Teams.teams[i]));
-            } else if (i < 12) {
-                groupC.add(getTeam(i + 1, "C", Teams.teams[i]));
-            } else if (i < 16) {
-                groupD.add(getTeam(i + 1, "D", Teams.teams[i]));
-            } else if (i < 20) {
-                groupE.add(getTeam(i + 1, "E", Teams.teams[i]));
-            } else {
-                groupF.add(getTeam(i + 1, "F", Teams.teams[i]));
-            }
-        }
-    }
-
-    private void getFixtures() {
-        fixturesArrayList = DBHelper.getFixtures(this);
-    }
-
     private void getTeams() {
         teamArrayList = DBHelper.getTeams(this);
     }
@@ -121,80 +98,5 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle(getResources().getString(titleId));
         transaction.replace(R.id.fragment, fragment);
         transaction.commit();
-    }
-
-    private Team getTeam(int id, String group, String team) {
-        int won = 0, drawn = 0, lost = 0, forward = 0, against = 0;
-        for (int j = 0; j < fixturesArrayList.size(); j++) {
-            if (team.equals(fixturesArrayList.get(j).getTeam1())) {
-                if (fixturesArrayList.get(j).getScore1() != -1 && fixturesArrayList.get(j).getScore2() != -1) {
-                    if (fixturesArrayList.get(j).getScore1() > fixturesArrayList.get(j).getScore2()) {
-                        won++;
-                    } else if (fixturesArrayList.get(j).getScore1() < fixturesArrayList.get(j).getScore2()) {
-                        lost++;
-                    } else {
-                        drawn++;
-                    }
-                    forward += fixturesArrayList.get(j).getScore1();
-                    against += fixturesArrayList.get(j).getScore2();
-                }
-            }
-            if (team.equals(fixturesArrayList.get(j).getTeam2())) {
-                if (fixturesArrayList.get(j).getScore1() != -1 && fixturesArrayList.get(j).getScore2() != -1) {
-                    if (fixturesArrayList.get(j).getScore1() < fixturesArrayList.get(j).getScore2()) {
-                        won++;
-                    } else if (fixturesArrayList.get(j).getScore1() > fixturesArrayList.get(j).getScore2()) {
-                        lost++;
-                    } else {
-                        drawn++;
-                    }
-                    forward += fixturesArrayList.get(j).getScore2();
-                    against += fixturesArrayList.get(j).getScore1();
-                }
-            }
-        }
-        int points = (won * 3 + drawn) * 10000 + (forward - against) * 100 + forward;
-        return new Team(id, group, team, won, drawn, lost, forward, against, points);
-    }
-
-    public void updateTeam() {
-        fixturesArrayList = DBHelper.getFixtures(this);
-        for (int i = 0; i < teamArrayList.size(); i++) {
-            int won = 0, drawn = 0, lost = 0, forward = 0, against = 0, points;
-            for (int j = 0; j < fixturesArrayList.size(); j++) {
-                if (fixturesArrayList.get(j).getScore1() != -1 && fixturesArrayList.get(j).getScore2() != -1) {
-                    if (teamArrayList.get(i).getTeam().equals(fixturesArrayList.get(j).getTeam1())) {
-                        if (fixturesArrayList.get(j).getScore1() > fixturesArrayList.get(j).getScore2()) {
-                            won++;
-                        } else if (fixturesArrayList.get(j).getScore1() < fixturesArrayList.get(j).getScore2()) {
-                            lost++;
-                        } else {
-                            drawn++;
-                        }
-                        forward += fixturesArrayList.get(j).getScore1();
-                        against += fixturesArrayList.get(j).getScore2();
-                    }
-                    if (teamArrayList.get(i).getTeam().equals(fixturesArrayList.get(j).getTeam2())) {
-                        if (fixturesArrayList.get(j).getScore1() < fixturesArrayList.get(j).getScore2()) {
-                            won++;
-                        } else if (fixturesArrayList.get(j).getScore1() > fixturesArrayList.get(j).getScore2()) {
-                            lost++;
-                        } else {
-                            drawn++;
-                        }
-                        forward += fixturesArrayList.get(j).getScore2();
-                        against += fixturesArrayList.get(j).getScore1();
-                    }
-                }
-            }
-            points = (won * 3 + drawn) * 1000000 + (forward - against) * 10000 + forward * 100 - teamArrayList.get(i).getId();
-
-            teamArrayList.get(i).setWon(won);
-            teamArrayList.get(i).setDrawn(drawn);
-            teamArrayList.get(i).setLost(lost);
-            teamArrayList.get(i).setForward(forward);
-            teamArrayList.get(i).setAgainst(against);
-            teamArrayList.get(i).setPoints(points);
-        }
     }
 }

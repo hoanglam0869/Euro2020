@@ -14,6 +14,7 @@ import com.hoanglam0869.euro2020.R;
 import com.hoanglam0869.euro2020.adapter.GroupAdapter;
 import com.hoanglam0869.euro2020.database.DBHelper;
 import com.hoanglam0869.euro2020.model.Group;
+import com.hoanglam0869.euro2020.model.Team;
 
 import java.util.ArrayList;
 
@@ -32,19 +33,30 @@ public class TableFragment extends Fragment {
 
         DBHelper.updateTeam(getActivity());
 
-        /*MainActivity.groupA.clear();
-        MainActivity.groupB.clear();
-        MainActivity.groupC.clear();
-        MainActivity.groupD.clear();
-        MainActivity.groupE.clear();
-        MainActivity.groupF.clear();*/
-
         MainActivity.groupA = DBHelper.getTeamsByGroup(getActivity(), "A");
         MainActivity.groupB = DBHelper.getTeamsByGroup(getActivity(), "B");
         MainActivity.groupC = DBHelper.getTeamsByGroup(getActivity(), "C");
         MainActivity.groupD = DBHelper.getTeamsByGroup(getActivity(), "D");
         MainActivity.groupE = DBHelper.getTeamsByGroup(getActivity(), "E");
         MainActivity.groupF = DBHelper.getTeamsByGroup(getActivity(), "F");
+
+        MainActivity.groupThirdPlaced = new ArrayList<>();
+        MainActivity.groupThirdPlaced.add(MainActivity.groupA.get(2));
+        MainActivity.groupThirdPlaced.add(MainActivity.groupB.get(2));
+        MainActivity.groupThirdPlaced.add(MainActivity.groupC.get(2));
+        MainActivity.groupThirdPlaced.add(MainActivity.groupD.get(2));
+        MainActivity.groupThirdPlaced.add(MainActivity.groupE.get(2));
+        MainActivity.groupThirdPlaced.add(MainActivity.groupF.get(2));
+
+        for (int i = 0; i < MainActivity.groupThirdPlaced.size(); i++) {
+            for (int j = i + 1; j < MainActivity.groupThirdPlaced.size(); j++) {
+                if (MainActivity.groupThirdPlaced.get(i).getPoints() < MainActivity.groupThirdPlaced.get(j).getPoints()) {
+                    Team team = MainActivity.groupThirdPlaced.get(i);
+                    MainActivity.groupThirdPlaced.set(i, MainActivity.groupThirdPlaced.get(j));
+                    MainActivity.groupThirdPlaced.set(j, team);
+                }
+            }
+        }
 
         groupArrayList = new ArrayList<>();
         groupArrayList.add(new Group("A", MainActivity.groupA));
@@ -53,6 +65,7 @@ public class TableFragment extends Fragment {
         groupArrayList.add(new Group("D", MainActivity.groupD));
         groupArrayList.add(new Group("E", MainActivity.groupE));
         groupArrayList.add(new Group("F", MainActivity.groupF));
+        groupArrayList.add(new Group("Third-placed", MainActivity.groupThirdPlaced));
 
         adapter = new GroupAdapter(getContext(), groupArrayList);
 

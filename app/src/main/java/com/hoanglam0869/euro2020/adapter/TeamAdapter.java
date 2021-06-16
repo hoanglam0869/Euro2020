@@ -1,6 +1,7 @@
 package com.hoanglam0869.euro2020.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,17 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
         } else {
             holder.layoutTitle.setVisibility(View.GONE);
         }
+
+        if (teamArrayList.size() == 4) {
+            if (position < 2) {
+                holder.layoutTeam.setBackgroundColor(Color.parseColor("#7fffd4"));
+            }
+        }
+        if (teamArrayList.size() == 6) {
+            if (position < 4) {
+                holder.layoutTeam.setBackgroundColor(Color.parseColor("#7fffd4"));
+            }
+        }
     }
 
     @Override
@@ -69,7 +81,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgTeam;
         TextView txvTeam, txvPlayed, txvWon, txvDrawn, txvLost, txvForward_Against, txvPoints;
-        LinearLayout layoutTitle;
+        LinearLayout layoutTitle, layoutTeam;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -85,6 +97,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
             txvPoints = itemView.findViewById(R.id.txvPoints);
 
             layoutTitle = itemView.findViewById(R.id.layoutTitle);
+            layoutTeam = itemView.findViewById(R.id.layoutTeam);
         }
     }
 }

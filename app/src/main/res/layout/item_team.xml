@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
 
     <LinearLayout
         android:id="@+id/layoutTitle"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:orientation="horizontal">
 
         <View
@@ -78,9 +79,9 @@
         android:background="#40000000" />
 
     <LinearLayout
+        android:id="@+id/layoutTeam"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
         <LinearLayout

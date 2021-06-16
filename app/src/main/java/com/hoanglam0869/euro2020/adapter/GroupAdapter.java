@@ -37,8 +37,12 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Group group = groupArrayList.get(position);
 
-        String content = context.getResources().getString(R.string.group) + " " + group.getGroup();
-        holder.txvGroup.setText(content);
+        if (group.getGroup().equals("Third-placed")) {
+            holder.txvGroup.setText(context.getResources().getString(R.string.ranking_of_third_placed_teams));
+        } else {
+            String content = context.getResources().getString(R.string.group) + " " + group.getGroup();
+            holder.txvGroup.setText(content);
+        }
 
         TeamAdapter adapter = new TeamAdapter(context, group.getTeamArrayList());
 
