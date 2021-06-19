@@ -60,12 +60,12 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
 
         if (teamArrayList.size() == 4) {
             if (position < 2) {
-                holder.layoutTeam.setBackgroundColor(Color.parseColor("#7fffd4"));
+                holder.layoutTeam.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
             }
         }
         if (teamArrayList.size() == 6) {
             if (position < 4) {
-                holder.layoutTeam.setBackgroundColor(Color.parseColor("#7fffd4"));
+                holder.layoutTeam.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
             }
         }
     }
@@ -81,7 +81,8 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgTeam;
         TextView txvTeam, txvPlayed, txvWon, txvDrawn, txvLost, txvForward_Against, txvPoints;
-        LinearLayout layoutTitle, layoutTeam;
+        LinearLayout layoutTitle;
+        View layoutTeam;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

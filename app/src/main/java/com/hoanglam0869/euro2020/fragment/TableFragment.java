@@ -32,6 +32,7 @@ public class TableFragment extends Fragment {
         recyclerViewTable = view.findViewById(R.id.recyclerViewTable);
 
         DBHelper.updateTeam(getActivity());
+        DBHelper.setHeadToHeadPoints(getActivity());
 
         MainActivity.groupA = DBHelper.getTeamsByGroup(getActivity(), "A");
         MainActivity.groupB = DBHelper.getTeamsByGroup(getActivity(), "B");
@@ -40,23 +41,7 @@ public class TableFragment extends Fragment {
         MainActivity.groupE = DBHelper.getTeamsByGroup(getActivity(), "E");
         MainActivity.groupF = DBHelper.getTeamsByGroup(getActivity(), "F");
 
-        MainActivity.groupThirdPlaced = new ArrayList<>();
-        MainActivity.groupThirdPlaced.add(MainActivity.groupA.get(2));
-        MainActivity.groupThirdPlaced.add(MainActivity.groupB.get(2));
-        MainActivity.groupThirdPlaced.add(MainActivity.groupC.get(2));
-        MainActivity.groupThirdPlaced.add(MainActivity.groupD.get(2));
-        MainActivity.groupThirdPlaced.add(MainActivity.groupE.get(2));
-        MainActivity.groupThirdPlaced.add(MainActivity.groupF.get(2));
-
-        for (int i = 0; i < MainActivity.groupThirdPlaced.size(); i++) {
-            for (int j = i + 1; j < MainActivity.groupThirdPlaced.size(); j++) {
-                if (MainActivity.groupThirdPlaced.get(i).getPoints() < MainActivity.groupThirdPlaced.get(j).getPoints()) {
-                    Team team = MainActivity.groupThirdPlaced.get(i);
-                    MainActivity.groupThirdPlaced.set(i, MainActivity.groupThirdPlaced.get(j));
-                    MainActivity.groupThirdPlaced.set(j, team);
-                }
-            }
-        }
+        MainActivity.groupThirdPlaced = DBHelper.getThirdPlacedTeams(getActivity());
 
         groupArrayList = new ArrayList<>();
         groupArrayList.add(new Group("A", MainActivity.groupA));

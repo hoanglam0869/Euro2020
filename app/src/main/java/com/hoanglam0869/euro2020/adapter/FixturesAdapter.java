@@ -101,11 +101,19 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
             }
         }
 
+        holder.txvMatch.setText(String.valueOf(fixtures.getId()));
+
         if (id < 37) {
             holder.txvGroup.setVisibility(View.VISIBLE);
             holder.txvGroup.setText(fixtures.getGroup());
+
+            holder.imgTeam1.setImageResource(Flags.getFlag(fixtures.getTeam1()));
+            holder.imgTeam2.setImageResource(Flags.getFlag(fixtures.getTeam2()));
         } else {
             holder.txvGroup.setVisibility(View.GONE);
+
+            holder.imgTeam1.setImageResource(R.drawable.circle);
+            holder.imgTeam2.setImageResource(R.drawable.circle);
         }
 
         holder.txvStadium.setText(fixtures.getStadium());
@@ -123,9 +131,6 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         } else {
             holder.edtScore2.setText(String.valueOf(fixtures.getScore2()));
         }
-
-        holder.imgTeam1.setImageResource(Flags.getFlag(fixtures.getTeam1()));
-        holder.imgTeam2.setImageResource(Flags.getFlag(fixtures.getTeam2()));
     }
 
     @Override
@@ -137,7 +142,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txvRound, txvDate, txvGroup, txvStadium, txvTime, txvTeam1, txvTeam2;
+        TextView txvRound, txvDate, txvMatch, txvGroup, txvStadium, txvTime, txvTeam1, txvTeam2;
         ImageView imgTeam1, imgTeam2;
         EditText edtScore1, edtScore2;
 
@@ -146,6 +151,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
             txvRound = itemView.findViewById(R.id.txvRound);
             txvDate = itemView.findViewById(R.id.txvDate);
+            txvMatch = itemView.findViewById(R.id.txvMatch);
             txvGroup = itemView.findViewById(R.id.txvGroup);
             txvStadium = itemView.findViewById(R.id.txvStadium);
             txvTime = itemView.findViewById(R.id.txvTime);
@@ -169,15 +175,10 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                     if (s.toString().length() != 0) {
                         int score = Integer.parseInt(s + "");
                         fixturesArrayList.get(getAdapterPosition()).setScore1(score);
-                        if (edtScore2.getText().toString().length() != 0) {
-                            DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
-                        }
                     } else {
                         fixturesArrayList.get(getAdapterPosition()).setScore1(-1);
-                        DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
-
-                        //DBHelper.updateTeam((MainActivity) context);
                     }
+                    DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
                 }
 
                 @Override
@@ -196,15 +197,10 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                     if (s.toString().length() != 0) {
                         int score = Integer.parseInt(s + "");
                         fixturesArrayList.get(getAdapterPosition()).setScore2(score);
-                        if (edtScore1.getText().toString().length() != 0) {
-                            DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
-                        }
                     } else {
                         fixturesArrayList.get(getAdapterPosition()).setScore2(-1);
-                        DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
-
-                        //DBHelper.updateTeam((MainActivity) context);
                     }
+                    DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
                 }
 
                 @Override

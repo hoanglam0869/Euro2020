@@ -66,4 +66,68 @@
     </string-array>
     <string name="select_time_zone">Select time zone</string>
     <string name="ranking_of_third_placed_teams">Ranking of third-placed teams</string>
+
+    <string name="second_in_group_a">2nd in Group A</string>
+    <string name="first_in_group_a">1st in Group A</string>
+    <string name="first_in_group_c">1st in Group C</string>
+    <string name="first_in_group_b">1st in Group B</string>
+    <string name="second_in_group_d">2nd in Group D</string>
+    <string name="first_in_group_f">1st in Group F</string>
+    <string name="first_in_group_d">1st in Group D</string>
+    <string name="first_in_group_e">1st in Group E</string>
+    <string name="winner_r16_match_6">Winner R16 match 6</string>
+    <string name="winner_r16_match_4">Winner R16 match 4</string>
+    <string name="winner_r16_match_3">Winner R16 match 3</string>
+    <string name="winner_r16_match_8">Winner R16 match 8</string>
+    <string name="winner_qf2">Winner QF2</string>
+    <string name="winner_qf4">Winner QF4</string>
+    <string name="winner_sf1">Winner SF1</string>
+    <string name="second_in_group_b">2nd in Group B</string>
+    <string name="second_in_group_c">2nd in Group C</string>
+    <string name="third_in_group_d_e_f">3rd in Groups D/E or F</string>
+    <string name="third_in_group_a_d_e_f">3rd in Groups A/D/E or F</string>
+    <string name="second_in_group_e">2nd in Group E</string>
+    <string name="third_in_group_a_b_c">3rd in Groups A/B or C</string>
+    <string name="second_in_group_f">2nd in Group F</string>
+    <string name="third_in_group_a_b_c_d">3rd in Groups A/B/C or D</string>
+    <string name="winner_r16_match_5">Winner R16 match 5</string>
+    <string name="winner_r16_match_2">Winner R16 match 2</string>
+    <string name="winner_r16_match_1">Winner R16 match 1</string>
+    <string name="winner_r16_match_7">Winner R16 match 7</string>
+    <string name="winner_qf1">Winner QF1</string>
+    <string name="winner_qf3">Winner QF3</string>
+    <string name="winner_sf2">Winner SF2</string>
+
+    <string-array name="unknown">
+        <item>@string/second_in_group_a</item>
+        <item>@string/first_in_group_a</item>
+        <item>@string/first_in_group_c</item>
+        <item>@string/first_in_group_b</item>
+        <item>@string/second_in_group_d</item>
+        <item>@string/first_in_group_f</item>
+        <item>@string/first_in_group_d</item>
+        <item>@string/first_in_group_e</item>
+        <item>@string/winner_r16_match_6</item>
+        <item>@string/winner_r16_match_4</item>
+        <item>@string/winner_r16_match_3</item>
+        <item>@string/winner_r16_match_8</item>
+        <item>@string/winner_qf2</item>
+        <item>@string/winner_qf4</item>
+        <item>@string/winner_sf1</item>
+        <item>@string/second_in_group_b</item>
+        <item>@string/second_in_group_c</item>
+        <item>@string/third_in_group_d_e_f</item>
+        <item>@string/third_in_group_a_d_e_f</item>
+        <item>@string/second_in_group_e</item>
+        <item>@string/third_in_group_a_b_c</item>
+        <item>@string/second_in_group_f</item>
+        <item>@string/third_in_group_a_b_c_d</item>
+        <item>@string/winner_r16_match_5</item>
+        <item>@string/winner_r16_match_2</item>
+        <item>@string/winner_r16_match_1</item>
+        <item>@string/winner_r16_match_7</item>
+        <item>@string/winner_qf1</item>
+        <item>@string/winner_qf3</item>
+        <item>@string/winner_sf2</item>
+    </string-array>
 </resources>

@@ -15,7 +15,6 @@ import com.hoanglam0869.euro2020.fragment.TeamFragment;
 import com.hoanglam0869.euro2020.model.Fixtures;
 import com.hoanglam0869.euro2020.model.Team;
 import com.hoanglam0869.euro2020.utils.Settings;
-import com.hoanglam0869.euro2020.utils.Teams;
 
 import java.util.ArrayList;
 
@@ -98,5 +97,32 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle(getResources().getString(titleId));
         transaction.replace(R.id.fragment, fragment);
         transaction.commit();
+
+        /*for (int j = 0; j < fixturesArrayList.size(); j++) {
+            if (fixturesArrayList.get(j).getScore1() != -1 && fixturesArrayList.get(j).getScore2() != -1) {
+                if (MainActivity.teamArrayList.get(i).getTeam().equals(fixturesArrayList.get(j).getTeam1())) {
+                    if (fixturesArrayList.get(j).getScore1() > fixturesArrayList.get(j).getScore2()) {
+                        won++;
+                    } else if (fixturesArrayList.get(j).getScore1() < fixturesArrayList.get(j).getScore2()) {
+                        lost++;
+                    } else {
+                        drawn++;
+                    }
+                    forward += fixturesArrayList.get(j).getScore1();
+                    against += fixturesArrayList.get(j).getScore2();
+                }
+                if (MainActivity.teamArrayList.get(i).getTeam().equals(fixturesArrayList.get(j).getTeam2())) {
+                    if (fixturesArrayList.get(j).getScore1() < fixturesArrayList.get(j).getScore2()) {
+                        won++;
+                    } else if (fixturesArrayList.get(j).getScore1() > fixturesArrayList.get(j).getScore2()) {
+                        lost++;
+                    } else {
+                        drawn++;
+                    }
+                    forward += fixturesArrayList.get(j).getScore2();
+                    against += fixturesArrayList.get(j).getScore1();
+                }
+            }
+        }*/
     }
 }
