@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,22 +8,32 @@
     tools:context=".fragment.MoreFragment">
 
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/time_zone"
+            app:tint="@color/colorPrimary" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="4"
+            android:gravity="center_vertical"
             android:text="@string/select_time_zone"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <Spinner
+            android:background="@drawable/round_bg"
             android:id="@+id/spnTimeZone"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="6" />
+            android:layout_height="match_parent"
+            android:layout_weight="5" />
     </LinearLayout>
 </RelativeLayout>

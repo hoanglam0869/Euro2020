@@ -13,6 +13,7 @@
     <string name="quarter_finals">Tứ kết</string>
     <string name="semi_finals">Bán kết</string>
     <string name="final_match">Chung kết</string>
+
     <string name="austria">Áo</string>
     <string name="belgium">Bỉ</string>
     <string name="croatia">Croatia</string>
@@ -36,6 +37,39 @@
     <string name="switzerland">Thụy Sĩ</string>
     <string name="turkey">Thổ Nhĩ Kỳ</string>
     <string name="ukraine">Ucraina</string>
-    <string name="wales">Xứ Wales</string>
+    <string name="wales">Wales</string>
     <string name="select_time_zone">Chọn múi giờ</string>
+    <string name="ranking_of_third_placed_teams">Bảng xếp hạng các đội hạng 3</string>
+
+    <string name="second_in_group_a">Nhì bảng A</string>
+    <string name="first_in_group_a">Nhất bảng A</string>
+    <string name="first_in_group_c">Nhất bảng C</string>
+    <string name="first_in_group_b">Nhất bảng B</string>
+    <string name="second_in_group_d">Nhì bảng D</string>
+    <string name="first_in_group_f">Nhất bảng F</string>
+    <string name="first_in_group_d">Nhất bảng D</string>
+    <string name="first_in_group_e">Nhất bảng E</string>
+    <string name="winner_r16_match_6">Thắng trận 6 vòng 1/16</string>
+    <string name="winner_r16_match_4">Thắng trận 4 vòng 1/16</string>
+    <string name="winner_r16_match_3">Thắng trận 3 vòng 1/16</string>
+    <string name="winner_r16_match_8">Thắng trận 8 vòng 1/16</string>
+    <string name="winner_qf2">Thắng trận Tứ kết 2</string>
+    <string name="winner_qf4">Thắng trận Tứ kết 4</string>
+    <string name="winner_sf1">Thắng trận Bán kết 1</string>
+    <string name="second_in_group_b">Nhì bảng B</string>
+    <string name="second_in_group_c">Nhì bảng C</string>
+    <string name="third_in_group_d_e_f">Ba bảng D/E hoặc F</string>
+    <string name="third_in_group_a_d_e_f">Ba bảng A/D/E hoặc F</string>
+    <string name="second_in_group_e">Nhì bảng E</string>
+    <string name="third_in_group_a_b_c">Ba bảng A/B hoặc C</string>
+    <string name="second_in_group_f">Nhì bảng F</string>
+    <string name="third_in_group_a_b_c_d">Ba bảng A/B/C hoặc D</string>
+    <string name="winner_r16_match_5">Thắng trận 5 vòng 1/16</string>
+    <string name="winner_r16_match_2">Thắng trận 2 vòng 1/16</string>
+    <string name="winner_r16_match_1">Thắng trận 1 vòng 1/16</string>
+    <string name="winner_r16_match_7">Thắng trận 7 vòng 1/16</string>
+    <string name="winner_qf1">Thắng trận Tứ kết 1</string>
+    <string name="winner_qf3">Thắng trận Tứ kết 3</string>
+    <string name="winner_sf2">Thắng trận Bán kết 2</string>
+
 </resources>

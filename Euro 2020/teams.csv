@@ -1,25 +1,25 @@
-id,grouptable,team,won,drawn,lost,for,against,points
-1,A,Italy,0,0,0,0,0,0
-2,A,Switzerland,0,0,0,0,0,0
-3,A,Turkey,0,0,0,0,0,0
-4,A,Wales,0,0,0,0,0,0
-5,B,Belgium,0,0,0,0,0,0
-6,B,Denmark,0,0,0,0,0,0
-7,B,Finland,0,0,0,0,0,0
-8,B,Russia,0,0,0,0,0,0
-9,C,Austria,0,0,0,0,0,0
-10,C,Netherlands,0,0,0,0,0,0
-11,C,North Macedonia,0,0,0,0,0,0
-12,C,Ukraine,0,0,0,0,0,0
-13,D,Croatia,0,0,0,0,0,0
-14,D,Czech Republic,0,0,0,0,0,0
-15,D,England,0,0,0,0,0,0
-16,D,Scotland,0,0,0,0,0,0
-17,E,Poland,0,0,0,0,0,0
-18,E,Slovakia,0,0,0,0,0,0
-19,E,Spain,0,0,0,0,0,0
-20,E,Sweden,0,0,0,0,0,0
-21,F,France,0,0,0,0,0,0
-22,F,Germany,0,0,0,0,0,0
-23,F,Hungary,0,0,0,0,0,0
-24,F,Portugal,0,0,0,0,0,0
+id,grouptable,team,won,drawn,lost,forward,against,points,position
+1,A,Italy,0,0,0,0,0,0,1
+2,A,Switzerland,0,0,0,0,0,0,2
+3,A,Turkey,0,0,0,0,0,0,3
+4,A,Wales,0,0,0,0,0,0,4
+5,B,Belgium,0,0,0,0,0,0,1
+6,B,Denmark,0,0,0,0,0,0,2
+7,B,Finland,0,0,0,0,0,0,3
+8,B,Russia,0,0,0,0,0,0,4
+9,C,Austria,0,0,0,0,0,0,1
+10,C,Netherlands,0,0,0,0,0,0,2
+11,C,North Macedonia,0,0,0,0,0,0,3
+12,C,Ukraine,0,0,0,0,0,0,4
+13,D,Croatia,0,0,0,0,0,0,1
+14,D,Czech Republic,0,0,0,0,0,0,2
+15,D,England,0,0,0,0,0,0,3
+16,D,Scotland,0,0,0,0,0,0,4
+17,E,Poland,0,0,0,0,0,0,1
+18,E,Slovakia,0,0,0,0,0,0,2
+19,E,Spain,0,0,0,0,0,0,3
+20,E,Sweden,0,0,0,0,0,0,4
+21,F,France,0,0,0,0,0,0,1
+22,F,Germany,0,0,0,0,0,0,2
+23,F,Hungary,0,0,0,0,0,0,3
+24,F,Portugal,0,0,0,0,0,0,4
