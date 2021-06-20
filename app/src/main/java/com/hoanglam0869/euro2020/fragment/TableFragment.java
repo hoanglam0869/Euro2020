@@ -31,18 +31,6 @@ public class TableFragment extends Fragment {
 
         recyclerViewTable = view.findViewById(R.id.recyclerViewTable);
 
-        DBHelper.updateTeam(getActivity());
-        DBHelper.setHeadToHeadPoints(getActivity());
-
-        MainActivity.groupA = DBHelper.getTeamsByGroup(getActivity(), "A");
-        MainActivity.groupB = DBHelper.getTeamsByGroup(getActivity(), "B");
-        MainActivity.groupC = DBHelper.getTeamsByGroup(getActivity(), "C");
-        MainActivity.groupD = DBHelper.getTeamsByGroup(getActivity(), "D");
-        MainActivity.groupE = DBHelper.getTeamsByGroup(getActivity(), "E");
-        MainActivity.groupF = DBHelper.getTeamsByGroup(getActivity(), "F");
-
-        MainActivity.groupThirdPlaced = DBHelper.getThirdPlacedTeams(getActivity());
-
         groupArrayList = new ArrayList<>();
         groupArrayList.add(new Group("A", MainActivity.groupA));
         groupArrayList.add(new Group("B", MainActivity.groupB));

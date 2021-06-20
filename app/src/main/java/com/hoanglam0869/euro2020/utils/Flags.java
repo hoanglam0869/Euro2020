@@ -31,13 +31,11 @@ public class Flags {
             R.drawable.portugal};
 
     public static int getFlag(String team) {
-        int position = 0;
         for (int i = 0; i < MainActivity.teamArrayList.size(); i++) {
             if (team.equals(MainActivity.teamArrayList.get(i).getTeam())) {
-                position = i;
-                break;
+                return flags[i];
             }
         }
-        return flags[position];
+        return R.drawable.circle;
     }
 }

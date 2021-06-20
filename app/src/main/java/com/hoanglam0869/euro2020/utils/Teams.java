@@ -4,6 +4,9 @@ import android.content.Context;
 
 import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.R;
+import com.hoanglam0869.euro2020.model.Team;
+
+import java.util.ArrayList;
 
 public class Teams {
     public static final String[] unknown = {"2nd in Group A", "1st in Group A", "1st in Group C", "1st in Group B", "2nd in Group D",
@@ -34,5 +37,13 @@ public class Teams {
             }
         }
         return 0;
+    }
+
+    public static boolean isFinished(ArrayList<Team> teams) {
+        int total = 0;
+        for (int i = 0; i < teams.size(); i++) {
+            total += teams.get(i).getWon() + teams.get(i).getDrawn() + teams.get(i).getLost();
+        }
+        return total == teams.size() * 3;
     }
 }

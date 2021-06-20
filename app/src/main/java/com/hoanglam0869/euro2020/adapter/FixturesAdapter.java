@@ -31,6 +31,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
     ArrayList<Fixtures> fixturesArrayList;
 
     SimpleDateFormat formatOnlyDate, formatDate, formatTime;
+    MainActivity mainActivity;
 
     public FixturesAdapter(Context context, ArrayList<Fixtures> fixturesArrayList) {
         this.context = context;
@@ -39,6 +40,8 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         formatOnlyDate = new SimpleDateFormat("dd", Locale.getDefault());
         formatDate = new SimpleDateFormat("EEEEE dd MMM yyyy", Locale.getDefault());
         formatTime = new SimpleDateFormat("HH:mm", Locale.getDefault());
+
+        mainActivity = (MainActivity) context;
     }
 
     @NonNull
@@ -106,14 +109,8 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         if (id < 37) {
             holder.txvGroup.setVisibility(View.VISIBLE);
             holder.txvGroup.setText(fixtures.getGroup());
-
-            holder.imgTeam1.setImageResource(Flags.getFlag(fixtures.getTeam1()));
-            holder.imgTeam2.setImageResource(Flags.getFlag(fixtures.getTeam2()));
         } else {
             holder.txvGroup.setVisibility(View.GONE);
-
-            holder.imgTeam1.setImageResource(R.drawable.circle);
-            holder.imgTeam2.setImageResource(R.drawable.circle);
         }
 
         holder.txvStadium.setText(fixtures.getStadium());
@@ -131,6 +128,9 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         } else {
             holder.edtScore2.setText(String.valueOf(fixtures.getScore2()));
         }
+
+        holder.imgTeam1.setImageResource(Flags.getFlag(fixtures.getTeam1()));
+        holder.imgTeam2.setImageResource(Flags.getFlag(fixtures.getTeam2()));
     }
 
     @Override
@@ -178,7 +178,11 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                     } else {
                         fixturesArrayList.get(getAdapterPosition()).setScore1(-1);
                     }
-                    DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
+                    DBHelper.updateScore(mainActivity, fixturesArrayList.get(getAdapterPosition()));
+                    if (s.toString().length() != 0 && edtScore2.getText().toString().length() != 0) {
+                        mainActivity.getGroups();
+                        DBHelper.setRoundOf16Teams(mainActivity);
+                    }
                 }
 
                 @Override
@@ -200,7 +204,11 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                     } else {
                         fixturesArrayList.get(getAdapterPosition()).setScore2(-1);
                     }
-                    DBHelper.updateScore((MainActivity) context, fixturesArrayList.get(getAdapterPosition()));
+                    DBHelper.updateScore(mainActivity, fixturesArrayList.get(getAdapterPosition()));
+                    if (s.toString().length() != 0 && edtScore1.getText().toString().length() != 0) {
+                        mainActivity.getGroups();
+                        DBHelper.setRoundOf16Teams(mainActivity);
+                    }
                 }
 
                 @Override

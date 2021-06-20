@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.model.Fixtures;
 import com.hoanglam0869.euro2020.model.Team;
+import com.hoanglam0869.euro2020.utils.Teams;
 
 import java.util.ArrayList;
 
@@ -236,5 +237,58 @@ public class DBHelper {
         cursor.close();
         database.close();
         return teamArrayList;
+    }
+
+    public static void setRoundOf16Teams(Activity activity) {
+        SQLiteDatabase database = Database.initDatabase(activity, DATABASE_NAME);
+        ContentValues contentValues = new ContentValues();
+
+        if (Teams.isFinished(MainActivity.groupA)) {
+            contentValues.put("team1", MainActivity.groupA.get(0).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{38 + ""});
+            contentValues.clear();
+            contentValues.put("team1", MainActivity.groupA.get(1).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{37 + ""});
+        }
+
+        if (Teams.isFinished(MainActivity.groupB)) {
+            contentValues.put("team1", MainActivity.groupB.get(0).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{40 + ""});
+            contentValues.clear();
+            contentValues.put("team2", MainActivity.groupB.get(1).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{37 + ""});
+        }
+
+        if (Teams.isFinished(MainActivity.groupC)) {
+            contentValues.put("team1", MainActivity.groupC.get(0).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{39 + ""});
+            contentValues.clear();
+            contentValues.put("team2", MainActivity.groupC.get(1).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{38 + ""});
+        }
+
+        if (Teams.isFinished(MainActivity.groupD)) {
+            contentValues.put("team1", MainActivity.groupD.get(0).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{43 + ""});
+            contentValues.clear();
+            contentValues.put("team1", MainActivity.groupD.get(1).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{41 + ""});
+        }
+
+        if (Teams.isFinished(MainActivity.groupE)) {
+            contentValues.put("team1", MainActivity.groupE.get(0).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{44 + ""});
+            contentValues.clear();
+            contentValues.put("team2", MainActivity.groupE.get(1).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{41 + ""});
+        }
+
+        if (Teams.isFinished(MainActivity.groupF)) {
+            contentValues.put("team1", MainActivity.groupF.get(0).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{42 + ""});
+            contentValues.clear();
+            contentValues.put("team2", MainActivity.groupF.get(1).getTeam());
+            database.update("fixtures", contentValues, "id = ?", new String[]{43 + ""});
+        }
     }
 }

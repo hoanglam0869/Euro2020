@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar();
         setTimeZone();
         getTeams();
+        getGroups();
         setupSmoothBottomMenu();
     }
 
@@ -72,6 +73,20 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public void getGroups() {
+        DBHelper.updateTeam(this);
+        DBHelper.setHeadToHeadPoints(this);
+
+        groupA = DBHelper.getTeamsByGroup(this, "A");
+        groupB = DBHelper.getTeamsByGroup(this, "B");
+        groupC = DBHelper.getTeamsByGroup(this, "C");
+        groupD = DBHelper.getTeamsByGroup(this, "D");
+        groupE = DBHelper.getTeamsByGroup(this, "E");
+        groupF = DBHelper.getTeamsByGroup(this, "F");
+
+        groupThirdPlaced = DBHelper.getThirdPlacedTeams(this);
     }
 
     private void getTeams() {
