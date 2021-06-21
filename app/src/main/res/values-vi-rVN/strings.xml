@@ -39,7 +39,7 @@
     <string name="ukraine">Ucraina</string>
     <string name="wales">Wales</string>
     <string name="select_time_zone">Chọn múi giờ</string>
-    <string name="ranking_of_third_placed_teams">Bảng xếp hạng các đội hạng 3</string>
+    <string name="ranking_of_third_placed_teams">Thứ hạng của các đội xếp thứ ba</string>
 
     <string name="second_in_group_a">Nhì bảng A</string>
     <string name="first_in_group_a">Nhất bảng A</string>
@@ -71,5 +71,8 @@
     <string name="winner_qf1">Thắng trận Tứ kết 1</string>
     <string name="winner_qf3">Thắng trận Tứ kết 3</string>
     <string name="winner_sf2">Thắng trận Bán kết 2</string>
+    <string name="combinations_of_matches_in_the_round_of_16">Ghép cặp các trận đấu ở vòng 16 đội</string>
+    <string name="third_placed_teams">Đội xếp thứ ba</string>
+    <string name="score">Tỉ số</string>
 
 </resources>

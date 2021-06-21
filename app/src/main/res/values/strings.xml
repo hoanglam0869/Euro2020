@@ -130,4 +130,7 @@
         <item>@string/winner_qf3</item>
         <item>@string/winner_sf2</item>
     </string-array>
+    <string name="combinations_of_matches_in_the_round_of_16">Combinations of matches in the round of 16</string>
+    <string name="third_placed_teams">Third-placed teams</string>
+    <string name="score">Score</string>
 </resources>
