@@ -10,6 +10,7 @@ import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 
+import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.R;
 import com.hoanglam0869.euro2020.utils.Settings;
 import com.hoanglam0869.euro2020.utils.TimeZone;
@@ -20,12 +21,20 @@ public class MoreFragment extends Fragment {
     Spinner spnTimeZone;
     ArrayAdapter<String> adapter;
 
+    MainActivity mainActivity;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_more, container, false);
 
+        mainActivity = (MainActivity) getContext();
+        if (mainActivity != null) {
+            mainActivity.txv3RD.setVisibility(View.GONE);
+        }
+
         anhXa();
         setTimeZone();
+
         return view;
     }
 
@@ -34,14 +43,14 @@ public class MoreFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnTimeZone.setAdapter(adapter);
 
-        Settings.getTimeZone(getContext());
+        Settings.getTimeZone(mainActivity);
         spnTimeZone.setSelection(TimeZone.positionTimeZone);
 
         spnTimeZone.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 TimeZone.positionTimeZone = position;
-                Settings.setTimeZone(getContext());
+                Settings.setTimeZone(mainActivity);
             }
 
             @Override

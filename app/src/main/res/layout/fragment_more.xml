@@ -8,9 +8,9 @@
     tools:context=".fragment.MoreFragment">
 
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -30,10 +30,10 @@
             android:textSize="16sp" />
 
         <Spinner
-            android:background="@drawable/round_bg"
             android:id="@+id/spnTimeZone"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="5" />
+            android:layout_weight="5"
+            android:background="@drawable/round_bg" />
     </LinearLayout>
 </RelativeLayout>

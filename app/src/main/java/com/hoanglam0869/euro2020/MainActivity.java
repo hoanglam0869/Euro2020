@@ -1,6 +1,7 @@
 package com.hoanglam0869.euro2020;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -24,6 +25,7 @@ import me.ibrahimsn.lib.SmoothBottomBar;
 public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
+    public TextView txv3RD;
     SmoothBottomBar bottomBar;
 
     public static ArrayList<Fixtures> fixturesArrayList;
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         groupE = DBHelper.getTeamsByGroup(this, "E");
         groupF = DBHelper.getTeamsByGroup(this, "F");
 
-        groupThirdPlaced = DBHelper.getThirdPlacedTeams(this);
+        groupThirdPlaced = DBHelper.getThirdPlacedTeams(this, 6);
     }
 
     private void getTeams() {
@@ -104,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void anhXa() {
         toolbar = findViewById(R.id.toolBar);
+        txv3RD = findViewById(R.id.txv3RD);
         bottomBar = findViewById(R.id.bottomBar);
     }
 

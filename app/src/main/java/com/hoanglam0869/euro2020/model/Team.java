@@ -3,7 +3,7 @@ package com.hoanglam0869.euro2020.model;
 public class Team {
     private int id;
     private String group, team;
-    private int  won, drawn, lost, forward, against, points, position;
+    private int won, drawn, lost, forward, against, points, position;
 
     public Team(int id, String group, String team, int won, int drawn, int lost, int forward, int against, int points, int position) {
         this.id = id;

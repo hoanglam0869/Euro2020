@@ -223,9 +223,9 @@ public class DBHelper {
         database.close();
     }
 
-    public static ArrayList<Team> getThirdPlacedTeams(Activity activity) {
+    public static ArrayList<Team> getThirdPlacedTeams(Activity activity, int limit) {
         SQLiteDatabase database = Database.initDatabase(activity, DATABASE_NAME);
-        Cursor cursor = database.rawQuery("SELECT * FROM teams WHERE position = 3 ORDER BY points DESC", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM teams WHERE position = 3 ORDER BY points DESC LIMIT " + limit, null);
 
         ArrayList<Team> teamArrayList = new ArrayList<>();
         while (cursor.moveToNext()) {
@@ -241,54 +241,79 @@ public class DBHelper {
 
     public static void setRoundOf16Teams(Activity activity) {
         SQLiteDatabase database = Database.initDatabase(activity, DATABASE_NAME);
-        ContentValues contentValues = new ContentValues();
+        ContentValues cv1 = new ContentValues();
+        ContentValues cv2 = new ContentValues();
 
         if (Teams.isFinished(MainActivity.groupA)) {
-            contentValues.put("team1", MainActivity.groupA.get(0).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{38 + ""});
-            contentValues.clear();
-            contentValues.put("team1", MainActivity.groupA.get(1).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{37 + ""});
+            cv1.put("team1", MainActivity.groupA.get(0).getTeam());
+            cv2.put("team1", MainActivity.groupA.get(1).getTeam());
+        } else {
+            cv1.put("team1", "1st in Group A");
+            cv2.put("team1", "2nd in Group A");
         }
+        database.update("fixtures", cv1, "id = ?", new String[]{38 + ""});
+        database.update("fixtures", cv2, "id = ?", new String[]{37 + ""});
+        cv1.clear();
+        cv2.clear();
 
         if (Teams.isFinished(MainActivity.groupB)) {
-            contentValues.put("team1", MainActivity.groupB.get(0).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{40 + ""});
-            contentValues.clear();
-            contentValues.put("team2", MainActivity.groupB.get(1).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{37 + ""});
+            cv1.put("team1", MainActivity.groupB.get(0).getTeam());
+            cv2.put("team2", MainActivity.groupB.get(1).getTeam());
+        } else {
+            cv1.put("team1", "1st in Group B");
+            cv2.put("team2", "2nd in Group B");
         }
+        database.update("fixtures", cv1, "id = ?", new String[]{40 + ""});
+        database.update("fixtures", cv2, "id = ?", new String[]{37 + ""});
+        cv1.clear();
+        cv2.clear();
 
         if (Teams.isFinished(MainActivity.groupC)) {
-            contentValues.put("team1", MainActivity.groupC.get(0).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{39 + ""});
-            contentValues.clear();
-            contentValues.put("team2", MainActivity.groupC.get(1).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{38 + ""});
+            cv1.put("team1", MainActivity.groupC.get(0).getTeam());
+            cv2.put("team2", MainActivity.groupC.get(1).getTeam());
+        } else {
+            cv1.put("team1", "1st in Group C");
+            cv2.put("team2", "2nd in Group C");
         }
+        database.update("fixtures", cv1, "id = ?", new String[]{39 + ""});
+        database.update("fixtures", cv2, "id = ?", new String[]{38 + ""});
+        cv1.clear();
+        cv2.clear();
 
         if (Teams.isFinished(MainActivity.groupD)) {
-            contentValues.put("team1", MainActivity.groupD.get(0).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{43 + ""});
-            contentValues.clear();
-            contentValues.put("team1", MainActivity.groupD.get(1).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{41 + ""});
+            cv1.put("team1", MainActivity.groupD.get(0).getTeam());
+            cv2.put("team1", MainActivity.groupD.get(1).getTeam());
+        } else {
+            cv1.put("team1", "1st in Group D");
+            cv2.put("team1", "2nd in Group D");
         }
+        database.update("fixtures", cv1, "id = ?", new String[]{43 + ""});
+        database.update("fixtures", cv2, "id = ?", new String[]{41 + ""});
+        cv1.clear();
+        cv2.clear();
 
         if (Teams.isFinished(MainActivity.groupE)) {
-            contentValues.put("team1", MainActivity.groupE.get(0).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{44 + ""});
-            contentValues.clear();
-            contentValues.put("team2", MainActivity.groupE.get(1).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{41 + ""});
+            cv1.put("team1", MainActivity.groupE.get(0).getTeam());
+            cv2.put("team2", MainActivity.groupE.get(1).getTeam());
+        } else {
+            cv1.put("team1", "1st in Group E");
+            cv2.put("team2", "2nd in Group E");
         }
+        database.update("fixtures", cv1, "id = ?", new String[]{44 + ""});
+        database.update("fixtures", cv2, "id = ?", new String[]{41 + ""});
+        cv1.clear();
+        cv2.clear();
 
         if (Teams.isFinished(MainActivity.groupF)) {
-            contentValues.put("team1", MainActivity.groupF.get(0).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{42 + ""});
-            contentValues.clear();
-            contentValues.put("team2", MainActivity.groupF.get(1).getTeam());
-            database.update("fixtures", contentValues, "id = ?", new String[]{43 + ""});
+            cv1.put("team1", MainActivity.groupF.get(0).getTeam());
+            cv2.put("team2", MainActivity.groupF.get(1).getTeam());
+        } else {
+            cv1.put("team1", "1st in Group F");
+            cv2.put("team2", "2nd in Group F");
         }
+        database.update("fixtures", cv1, "id = ?", new String[]{42 + ""});
+        database.update("fixtures", cv2, "id = ?", new String[]{43 + ""});
+        cv1.clear();
+        cv2.clear();
     }
 }

@@ -30,15 +30,6 @@ public class Teams {
         return null;
     }
 
-    public static int getPositionByTeam(String team) {
-        for (int i = 0; i < MainActivity.teamArrayList.size(); i++) {
-            if (team.equals(MainActivity.teamArrayList.get(i).getTeam())) {
-                return i;
-            }
-        }
-        return 0;
-    }
-
     public static boolean isFinished(ArrayList<Team> teams) {
         int total = 0;
         for (int i = 0; i < teams.size(); i++) {

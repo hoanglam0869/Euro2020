@@ -9,13 +9,32 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:titleTextColor="@color/white" />
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:titleTextColor="@color/white" />
+
+            <TextView
+                android:id="@+id/txv3RD"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:background="@drawable/white_circle_bg"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="3rd"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout

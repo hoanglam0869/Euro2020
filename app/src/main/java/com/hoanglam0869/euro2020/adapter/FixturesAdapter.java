@@ -1,12 +1,11 @@
 package com.hoanglam0869.euro2020.adapter;
 
 import android.content.Context;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.R;
 import com.hoanglam0869.euro2020.database.DBHelper;
+import com.hoanglam0869.euro2020.dialog.ScoreDialog;
 import com.hoanglam0869.euro2020.model.Fixtures;
 import com.hoanglam0869.euro2020.utils.Flags;
 import com.hoanglam0869.euro2020.utils.Teams;
@@ -31,7 +31,6 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
     ArrayList<Fixtures> fixturesArrayList;
 
     SimpleDateFormat formatOnlyDate, formatDate, formatTime;
-    MainActivity mainActivity;
 
     public FixturesAdapter(Context context, ArrayList<Fixtures> fixturesArrayList) {
         this.context = context;
@@ -40,8 +39,6 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         formatOnlyDate = new SimpleDateFormat("dd", Locale.getDefault());
         formatDate = new SimpleDateFormat("EEEEE dd MMM yyyy", Locale.getDefault());
         formatTime = new SimpleDateFormat("HH:mm", Locale.getDefault());
-
-        mainActivity = (MainActivity) context;
     }
 
     @NonNull
@@ -118,15 +115,11 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         holder.txvTeam1.setText(Teams.getTeamName(context, fixtures.getTeam1()));
         holder.txvTeam2.setText(Teams.getTeamName(context, fixtures.getTeam2()));
 
-        if (fixtures.getScore1() == -1) {
-            holder.edtScore1.setText("");
+        if (fixtures.getScore1() != -1 && fixtures.getScore2() != -1) {
+            String score = fixtures.getScore1() + "-" + fixtures.getScore2();
+            holder.txvScore.setText(score);
         } else {
-            holder.edtScore1.setText(String.valueOf(fixtures.getScore1()));
-        }
-        if (fixtures.getScore2() == -1) {
-            holder.edtScore2.setText("");
-        } else {
-            holder.edtScore2.setText(String.valueOf(fixtures.getScore2()));
+            holder.txvScore.setText("-");
         }
 
         holder.imgTeam1.setImageResource(Flags.getFlag(fixtures.getTeam1()));
@@ -144,7 +137,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txvRound, txvDate, txvMatch, txvGroup, txvStadium, txvTime, txvTeam1, txvTeam2;
         ImageView imgTeam1, imgTeam2;
-        EditText edtScore1, edtScore2;
+        TextView txvScore;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -161,59 +154,21 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
             imgTeam1 = itemView.findViewById(R.id.imgTeam1);
             imgTeam2 = itemView.findViewById(R.id.imgTeam2);
 
-            edtScore1 = itemView.findViewById(R.id.edtScore1);
-            edtScore2 = itemView.findViewById(R.id.edtScore2);
+            txvScore = itemView.findViewById(R.id.txvScore);
 
-            edtScore1.addTextChangedListener(new TextWatcher() {
+            txvScore.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if (s.toString().length() != 0) {
-                        int score = Integer.parseInt(s + "");
-                        fixturesArrayList.get(getAdapterPosition()).setScore1(score);
-                    } else {
-                        fixturesArrayList.get(getAdapterPosition()).setScore1(-1);
-                    }
-                    DBHelper.updateScore(mainActivity, fixturesArrayList.get(getAdapterPosition()));
-                    if (s.toString().length() != 0 && edtScore2.getText().toString().length() != 0) {
-                        mainActivity.getGroups();
-                        DBHelper.setRoundOf16Teams(mainActivity);
-                    }
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-
-                }
-            });
-            edtScore2.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if (s.toString().length() != 0) {
-                        int score = Integer.parseInt(s + "");
-                        fixturesArrayList.get(getAdapterPosition()).setScore2(score);
-                    } else {
-                        fixturesArrayList.get(getAdapterPosition()).setScore2(-1);
-                    }
-                    DBHelper.updateScore(mainActivity, fixturesArrayList.get(getAdapterPosition()));
-                    if (s.toString().length() != 0 && edtScore1.getText().toString().length() != 0) {
-                        mainActivity.getGroups();
-                        DBHelper.setRoundOf16Teams(mainActivity);
-                    }
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-
+                public void onClick(View v) {
+                    ScoreDialog scoreDialog = new ScoreDialog(context, fixturesArrayList.get(getAdapterPosition()));
+                    scoreDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            fixturesArrayList = DBHelper.getFixtures((MainActivity) context);
+                            notifyDataSetChanged();
+                        }
+                    });
+                    scoreDialog.show();
+                    scoreDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
                 }
             });
         }
