@@ -9,6 +9,7 @@ import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.model.Fixtures;
 import com.hoanglam0869.euro2020.model.Team;
 import com.hoanglam0869.euro2020.utils.Teams;
+import com.hoanglam0869.euro2020.utils.ThirdPlaced;
 
 import java.util.ArrayList;
 
@@ -159,12 +160,46 @@ public class DBHelper {
 
         ArrayList<Team> teamArrayList = new ArrayList<>();
         while (cursor.moveToNext()) {
-            teamArrayList.add(new Team(cursor.getInt(0), cursor.getString(1),
-                    cursor.getString(2), cursor.getInt(3), cursor.getInt(4),
-                    cursor.getInt(5), cursor.getInt(6), cursor.getInt(7),
-                    cursor.getInt(8), cursor.getInt(9)));
+            teamArrayList.add(new Team(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+                    cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getInt(6),
+                    cursor.getInt(7), cursor.getInt(8), cursor.getInt(9)));
         }
-
+        Team temp = null;
+        for (int i = 0; i < teamArrayList.size(); i++) {
+            int count = 1, position = 0;
+            Team team1 = teamArrayList.get(i);
+            for (int j = 0; j < teamArrayList.size(); j++) {
+                if (i != j) {
+                    Team team2 = teamArrayList.get(j);
+                    if (team1.getWon() * 3 + team1.getDrawn() == team2.getWon() * 3 + team2.getDrawn()) {
+                        count++;
+                        position = j;
+                        temp = teamArrayList.get(j);
+                    }
+                }
+            }
+            if (count == 2 && i < position) {
+                cursor = database.rawQuery("SELECT * FROM fixtures WHERE (team1='" + team1.getTeam() + "' AND team2='" + temp.getTeam() + "') OR (team1='" + temp.getTeam() + "' AND team2='" + team1.getTeam() + "')", null);
+                cursor.moveToFirst();
+                Fixtures fixtures = new Fixtures(cursor.getInt(0), cursor.getString(1),
+                        cursor.getString(2), cursor.getString(3), cursor.getString(4),
+                        cursor.getString(5), cursor.getInt(6), cursor.getInt(7),
+                        cursor.getString(8), cursor.getString(9));
+                if (fixtures.getScore1() != -1 && fixtures.getScore2() != -1) {
+                    if (fixtures.getTeam1().equals(team1.getTeam())) {
+                        if (fixtures.getScore1() < fixtures.getScore2()) {
+                            teamArrayList.set(i, temp);
+                            teamArrayList.set(position, team1);
+                        }
+                    } else {
+                        if (fixtures.getScore1() > fixtures.getScore2()) {
+                            teamArrayList.set(i, temp);
+                            teamArrayList.set(position, team1);
+                        }
+                    }
+                }
+            }
+        }
         for (int i = 0; i < teamArrayList.size(); i++) {
             teamArrayList.get(i).setPosition(i + 1);
 
@@ -173,7 +208,6 @@ public class DBHelper {
 
             database.update("teams", contentValues, "team = ?", new String[]{teamArrayList.get(i).getTeam()});
         }
-
         cursor.close();
         database.close();
         return teamArrayList;
@@ -243,6 +277,8 @@ public class DBHelper {
         SQLiteDatabase database = Database.initDatabase(activity, DATABASE_NAME);
         ContentValues cv1 = new ContentValues();
         ContentValues cv2 = new ContentValues();
+        ContentValues cv3 = new ContentValues();
+        ContentValues cv4 = new ContentValues();
 
         if (Teams.isFinished(MainActivity.groupA)) {
             cv1.put("team1", MainActivity.groupA.get(0).getTeam());
@@ -315,5 +351,24 @@ public class DBHelper {
         database.update("fixtures", cv2, "id = ?", new String[]{43 + ""});
         cv1.clear();
         cv2.clear();
+
+        ThirdPlaced.getThirdPlacedFourTeams();
+        if (Teams.isFinished(MainActivity.groupThirdPlaced)) {
+            cv1.put("team2", MainActivity.groupThirdPlacedFourTeams.get(1).getTeam());
+            cv2.put("team2", MainActivity.groupThirdPlacedFourTeams.get(0).getTeam());
+            cv3.put("team2", MainActivity.groupThirdPlacedFourTeams.get(3).getTeam());
+            cv4.put("team2", MainActivity.groupThirdPlacedFourTeams.get(2).getTeam());
+        } else {
+            cv1.put("team2", "3rd in Groups D/E or F");
+            cv2.put("team2", "3rd in Groups A/D/E or F");
+            cv3.put("team2", "3rd in Groups A/B or C");
+            cv4.put("team2", "3rd in Groups A/B/C or D");
+        }
+        database.update("fixtures", cv1, "id = ?", new String[]{39 + ""});
+        database.update("fixtures", cv2, "id = ?", new String[]{40 + ""});
+        database.update("fixtures", cv3, "id = ?", new String[]{42 + ""});
+        database.update("fixtures", cv4, "id = ?", new String[]{44 + ""});
+
+        database.close();
     }
 }

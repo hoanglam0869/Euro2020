@@ -20,6 +20,7 @@ import com.hoanglam0869.euro2020.utils.Flags;
 import com.hoanglam0869.euro2020.utils.Teams;
 
 public class ScoreDialog extends Dialog {
+    ImageView imgClose;
     TextView txvTeam1, txvTeam2;
     ImageView imgTeam1, imgTeam2;
     EditText edtScore1, edtScore2;
@@ -33,19 +34,10 @@ public class ScoreDialog extends Dialog {
         super(context);
         setContentView(R.layout.dialog_score);
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        setCanceledOnTouchOutside(false);
 
         mainActivity = (MainActivity) context;
-
-        txvTeam1 = findViewById(R.id.txvTeam1);
-        txvTeam2 = findViewById(R.id.txvTeam2);
-
-        imgTeam1 = findViewById(R.id.imgTeam1);
-        imgTeam2 = findViewById(R.id.imgTeam2);
-
-        edtScore1 = findViewById(R.id.edtScore1);
-        edtScore2 = findViewById(R.id.edtScore2);
-
-        btnOK = findViewById(R.id.btnOK);
+        anhXa();
 
         txvTeam1.setText(Teams.getTeamName(context, fixtures.getTeam1()));
         txvTeam2.setText(Teams.getTeamName(context, fixtures.getTeam2()));
@@ -60,6 +52,13 @@ public class ScoreDialog extends Dialog {
             edtScore1.setText(String.valueOf(fixtures.getScore1()));
             edtScore2.setText(String.valueOf(fixtures.getScore2()));
         }
+
+        imgClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancel();
+            }
+        });
 
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,5 +83,25 @@ public class ScoreDialog extends Dialog {
                 dismiss();
             }
         });
+    }
+
+    private void anhXa() {
+        imgClose = findViewById(R.id.imgClose);
+
+        txvTeam1 = findViewById(R.id.txvTeam1);
+        txvTeam2 = findViewById(R.id.txvTeam2);
+
+        imgTeam1 = findViewById(R.id.imgTeam1);
+        imgTeam2 = findViewById(R.id.imgTeam2);
+
+        edtScore1 = findViewById(R.id.edtScore1);
+        edtScore2 = findViewById(R.id.edtScore2);
+
+        btnOK = findViewById(R.id.btnOK);
+    }
+
+    @Override
+    public void onBackPressed() {
+        cancel();
     }
 }

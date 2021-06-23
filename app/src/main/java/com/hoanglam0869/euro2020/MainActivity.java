@@ -15,7 +15,9 @@ import com.hoanglam0869.euro2020.fragment.TableFragment;
 import com.hoanglam0869.euro2020.fragment.TeamFragment;
 import com.hoanglam0869.euro2020.model.Fixtures;
 import com.hoanglam0869.euro2020.model.Team;
+import com.hoanglam0869.euro2020.model.Third;
 import com.hoanglam0869.euro2020.utils.Settings;
+import com.hoanglam0869.euro2020.utils.ThirdPlaced;
 
 import java.util.ArrayList;
 
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Team> groupE;
     public static ArrayList<Team> groupF;
     public static ArrayList<Team> groupThirdPlaced;
+    public static ArrayList<Team> groupThirdPlacedFourTeams;
+    public static ArrayList<Third> combinations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getGroups() {
         DBHelper.updateTeam(this);
-        DBHelper.setHeadToHeadPoints(this);
+        //DBHelper.setHeadToHeadPoints(this);
 
         groupA = DBHelper.getTeamsByGroup(this, "A");
         groupB = DBHelper.getTeamsByGroup(this, "B");
@@ -89,10 +93,12 @@ public class MainActivity extends AppCompatActivity {
         groupF = DBHelper.getTeamsByGroup(this, "F");
 
         groupThirdPlaced = DBHelper.getThirdPlacedTeams(this, 6);
+        groupThirdPlacedFourTeams = DBHelper.getThirdPlacedTeams(this, 4);
     }
 
     private void getTeams() {
         teamArrayList = DBHelper.getTeams(this);
+        combinations = ThirdPlaced.getCombinations();
     }
 
     private void setTimeZone() {

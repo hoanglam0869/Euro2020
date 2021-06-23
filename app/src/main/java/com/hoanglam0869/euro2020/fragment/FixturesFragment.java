@@ -23,7 +23,7 @@ public class FixturesFragment extends Fragment {
     RecyclerView recyclerViewFixtures;
     FixturesAdapter adapter;
 
-    int lastPosition;
+    private int lastPosition;
     MainActivity mainActivity;
 
     @Override

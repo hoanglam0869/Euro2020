@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.R;
 import com.hoanglam0869.euro2020.adapter.GroupAdapter;
+import com.hoanglam0869.euro2020.database.DBHelper;
+import com.hoanglam0869.euro2020.dialog.ThirdPlacedDialog;
 import com.hoanglam0869.euro2020.model.Group;
 
 import java.util.ArrayList;
@@ -26,7 +29,7 @@ public class TableFragment extends Fragment {
     ArrayList<Group> groupArrayList;
     RecyclerView recyclerViewTable;
 
-    int lastPosition;
+    private int lastPosition;
     MainActivity mainActivity;
 
     @Override
@@ -77,7 +80,9 @@ public class TableFragment extends Fragment {
             mainActivity.txv3RD.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    ThirdPlacedDialog thirdPlacedDialog = new ThirdPlacedDialog(mainActivity, MainActivity.groupThirdPlacedFourTeams);
+                    thirdPlacedDialog.show();
+                    thirdPlacedDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
                 }
             });
         }

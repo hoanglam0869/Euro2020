@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,14 +37,14 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp">
 
             <ImageView
                 android:id="@+id/imgTeam1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/turkey" />
 
@@ -62,8 +61,8 @@
 
             <TextView
                 android:id="@+id/txvGroup1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentRight="true"
                 android:layout_margin="5dp"
                 android:background="@drawable/circle_bg"
@@ -76,12 +75,12 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="40dp">
 
             <ImageView
                 android:id="@+id/imgTeam2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/finland" />
 
@@ -98,8 +97,8 @@
 
             <TextView
                 android:id="@+id/txvGroup2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentRight="true"
                 android:layout_margin="5dp"
                 android:background="@drawable/circle_bg"
@@ -112,12 +111,12 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="40dp">
 
             <ImageView
                 android:id="@+id/imgTeam3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/north_macedonia" />
 
@@ -134,8 +133,8 @@
 
             <TextView
                 android:id="@+id/txvGroup3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentRight="true"
                 android:layout_margin="5dp"
                 android:background="@drawable/circle_bg"
@@ -148,12 +147,12 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="40dp">
 
             <ImageView
                 android:id="@+id/imgTeam4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/england" />
 
@@ -170,8 +169,8 @@
 
             <TextView
                 android:id="@+id/txvGroup4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentRight="true"
                 android:layout_margin="5dp"
                 android:background="@drawable/circle_bg"
@@ -186,16 +185,72 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:gravity="center"
             android:text="@string/combinations_of_matches_in_the_round_of_16"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:id="@+id/layoutFirstTeams"
+            android:layout_width="240dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#E1E1E1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_bg"
+                android:gravity="center"
+                android:text="1B vs"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_bg"
+                android:gravity="center"
+                android:text="1C vs"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_bg"
+                android:gravity="center"
+                android:text="1E vs"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_bg"
+                android:gravity="center"
+                android:text="1F vs"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewThirdPlaced"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
 
         <Button
             android:id="@+id/btnOK"
