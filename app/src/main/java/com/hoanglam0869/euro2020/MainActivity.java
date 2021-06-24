@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         groupF = DBHelper.getTeamsByGroup(this, "F");
 
         groupThirdPlaced = DBHelper.getThirdPlacedTeams(this, 6);
-        groupThirdPlacedFourTeams = DBHelper.getThirdPlacedTeams(this, 4);
+        groupThirdPlacedFourTeams = ThirdPlaced.getThirdPlacedFourTeams();
     }
 
     private void getTeams() {

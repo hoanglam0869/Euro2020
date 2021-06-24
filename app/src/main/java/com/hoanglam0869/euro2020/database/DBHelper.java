@@ -115,13 +115,6 @@ public class DBHelper {
 
             points = (won * 3 + drawn) * 100000000 + (forward - against) * 10000 + forward * 100 - MainActivity.teamArrayList.get(i).getId();
 
-            MainActivity.teamArrayList.get(i).setWon(won);
-            MainActivity.teamArrayList.get(i).setDrawn(drawn);
-            MainActivity.teamArrayList.get(i).setLost(lost);
-            MainActivity.teamArrayList.get(i).setForward(forward);
-            MainActivity.teamArrayList.get(i).setAgainst(against);
-            MainActivity.teamArrayList.get(i).setPoints(points);
-
             ContentValues contentValues = new ContentValues();
             contentValues.put("won", won);
             contentValues.put("drawn", drawn);
@@ -211,50 +204,6 @@ public class DBHelper {
         cursor.close();
         database.close();
         return teamArrayList;
-    }
-
-    public static void setHeadToHeadPoints(Activity activity) {
-        SQLiteDatabase database = Database.initDatabase(activity, DATABASE_NAME);
-        Cursor cursor = null;
-
-        for (int i = 0; i < MainActivity.teamArrayList.size(); i++) {
-            Team team1 = MainActivity.teamArrayList.get(i);
-            for (int j = 0; j < MainActivity.teamArrayList.size(); j++) {
-                if (i != j) {
-                    Team team2 = MainActivity.teamArrayList.get(j);
-                    if (team1.getGroup().equals(team2.getGroup())) {
-                        if (team1.getWon() * 3 + team1.getDrawn() == team2.getWon() * 3 + team2.getDrawn()) {
-                            cursor = database.rawQuery("SELECT * FROM fixtures WHERE (team1='" + team1.getTeam() + "' AND team2='" + team2.getTeam() + "') OR (team1='" + team2.getTeam() + "' AND team2='" + team1.getTeam() + "')", null);
-                            cursor.moveToFirst();
-                            Fixtures fixtures = new Fixtures(cursor.getInt(0), cursor.getString(1),
-                                    cursor.getString(2), cursor.getString(3), cursor.getString(4),
-                                    cursor.getString(5), cursor.getInt(6), cursor.getInt(7),
-                                    cursor.getString(8), cursor.getString(9));
-                            if (fixtures.getScore1() != -1 && fixtures.getScore2() != -1) {
-                                if (fixtures.getTeam1().equals(team1.getTeam())) {
-                                    if (fixtures.getScore1() >= fixtures.getScore2()) {
-                                        team1.setPoints(team1.getPoints() + 1000000);
-                                    }
-                                } else {
-                                    if (fixtures.getScore1() <= fixtures.getScore2()) {
-                                        team1.setPoints(team1.getPoints() + 1000000);
-                                    }
-                                }
-
-                                ContentValues contentValues = new ContentValues();
-                                contentValues.put("points", team1.getPoints());
-
-                                database.update("teams", contentValues, "team = ?", new String[]{team1.getTeam()});
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        if (cursor != null) {
-            cursor.close();
-        }
-        database.close();
     }
 
     public static ArrayList<Team> getThirdPlacedTeams(Activity activity, int limit) {
@@ -352,7 +301,6 @@ public class DBHelper {
         cv1.clear();
         cv2.clear();
 
-        ThirdPlaced.getThirdPlacedFourTeams();
         if (Teams.isFinished(MainActivity.groupThirdPlaced)) {
             cv1.put("team2", MainActivity.groupThirdPlacedFourTeams.get(1).getTeam());
             cv2.put("team2", MainActivity.groupThirdPlacedFourTeams.get(0).getTeam());

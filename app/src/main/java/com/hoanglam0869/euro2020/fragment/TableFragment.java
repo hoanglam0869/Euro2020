@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.R;
 import com.hoanglam0869.euro2020.adapter.GroupAdapter;
-import com.hoanglam0869.euro2020.database.DBHelper;
 import com.hoanglam0869.euro2020.dialog.ThirdPlacedDialog;
 import com.hoanglam0869.euro2020.model.Group;
 

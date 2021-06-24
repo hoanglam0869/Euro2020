@@ -34,8 +34,8 @@ public class ThirdPlaced {
         for (int i = 0; i < MainActivity.combinations.size(); i++) {
             int count = 0;
             Third third = MainActivity.combinations.get(i);
-            for (int j = 0; j < MainActivity.groupThirdPlacedFourTeams.size(); j++) {
-                Team team = MainActivity.groupThirdPlacedFourTeams.get(j);
+            for (int j = 0; j < 4; j++) {
+                Team team = MainActivity.groupThirdPlaced.get(j);
                 if (third.getFirstB().equals(team.getGroup())) {
                     count++;
                 }
@@ -56,26 +56,28 @@ public class ThirdPlaced {
         return 0;
     }
 
-    public static void getThirdPlacedFourTeams() {
+    public static ArrayList<Team> getThirdPlacedFourTeams() {
+        ArrayList<Team> teams = new ArrayList<>();
         Third third = MainActivity.combinations.get(getPositionOfCombinations());
-        Team[] teams = new Team[MainActivity.groupThirdPlacedFourTeams.size()];
-        for (int i = 0; i < MainActivity.groupThirdPlacedFourTeams.size(); i++) {
-            Team team = MainActivity.groupThirdPlacedFourTeams.get(i);
-            if (third.getFirstB().equals(team.getGroup())) {
-                teams[0] = team;
-            }
-            if (third.getFirstC().equals(team.getGroup())) {
-                teams[1] = team;
-            }
-            if (third.getFirstE().equals(team.getGroup())) {
-                teams[2] = team;
-            }
-            if (third.getFirstF().equals(team.getGroup())) {
-                teams[3] = team;
+        for (int i = 0; i < 4; i++) {
+            if (MainActivity.groupThirdPlaced.get(i).getGroup().equals(third.getFirstB())) {
+                teams.add(MainActivity.groupThirdPlaced.get(i));
             }
         }
-        for (int i = 0; i < MainActivity.groupThirdPlacedFourTeams.size(); i++) {
-            MainActivity.groupThirdPlacedFourTeams.set(i, teams[i]);
+        for (int i = 0; i < 4; i++) {
+            if (MainActivity.groupThirdPlaced.get(i).getGroup().equals(third.getFirstC())) {
+                teams.add(MainActivity.groupThirdPlaced.get(i));
+            }
+        }for (int i = 0; i < 4; i++) {
+            if (MainActivity.groupThirdPlaced.get(i).getGroup().equals(third.getFirstE())) {
+                teams.add(MainActivity.groupThirdPlaced.get(i));
+            }
         }
+        for (int i = 0; i < 4; i++) {
+            if (MainActivity.groupThirdPlaced.get(i).getGroup().equals(third.getFirstF())) {
+                teams.add(MainActivity.groupThirdPlaced.get(i));
+            }
+        }
+        return teams;
     }
 }

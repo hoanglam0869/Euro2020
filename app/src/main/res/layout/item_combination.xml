@@ -8,47 +8,101 @@
     <LinearLayout
         android:id="@+id/layoutCombination"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txvFirstB"
-            android:layout_width="60dp"
+        <LinearLayout
+            android:layout_width="75dp"
             android:layout_height="match_parent"
             android:background="@drawable/rectangle_bg"
-            android:gravity="center"
-            android:text="A"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txvFirstC"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/rectangle_bg"
-            android:gravity="center"
-            android:text="D"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+            <ImageView
+                android:id="@+id/imgFirstB"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp" />
 
-        <TextView
-            android:id="@+id/txvFirstE"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/rectangle_bg"
-            android:gravity="center"
-            android:text="B"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/txvFirstB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="3A"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/txvFirstF"
-            android:layout_width="60dp"
+        <LinearLayout
+            android:layout_width="75dp"
             android:layout_height="match_parent"
             android:background="@drawable/rectangle_bg"
-            android:gravity="center"
-            android:text="C"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgFirstC"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:id="@+id/txvFirstC"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="3D"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rectangle_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgFirstE"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:id="@+id/txvFirstE"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="3B"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rectangle_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgFirstF"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:id="@+id/txvFirstF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="3C"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
