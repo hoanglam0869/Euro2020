@@ -1,52 +1,52 @@
-id,time,group,stadium,team1,team2,score1,score2,result1,result2
-1,1623412800822,A,Olimpico in Rome - Rome,Turkey,Italy,-1,-1,-1,-1
-2,1623477600822,A,Baku Olympic Stadium - Baku,Wales,Switzerland,-1,-1,-1,-1
-3,1623488400822,B,Parken - Copenhagen,Denmark,Finland,-1,-1,-1,-1
-4,1623499200822,B,Saint Petersburg Stadium - St Petersburg,Belgium,Russia,-1,-1,-1,-1
-5,1623564000822,D,Wembley Stadium - London,England,Croatia,-1,-1,-1,-1
-6,1623574800822,C,National Arena Bucharest - Bucharest,Austria,North Macedonia,-1,-1,-1,-1
-7,1623585600822,C,Johan Cruijff ArenA - Amsterdam,Netherlands,Ukraine,-1,-1,-1,-1
-8,1623650400822,D,Hampden Park - Glasgow,Scotland,Czech Republic,-1,-1,-1,-1
-9,1623661200822,E,Saint Petersburg Stadium - St Petersburg,Poland,Slovakia,-1,-1,-1,-1
-10,1623672000822,E,La Cartuja Stadium - Seville,Spain,Sweden,-1,-1,-1,-1
-11,1623747600822,F,Puskás Aréna - Budapest,Hungary,Portugal,-1,-1,-1,-1
-12,1623758400822,F,Football Arena Munich - Munich,France,Germany,-1,-1,-1,-1
-13,1623823200822,B,Saint Petersburg Stadium - St Petersburg,Finland,Russia,-1,-1,-1,-1
-14,1623834000822,A,Baku Olympic Stadium - Baku,Turkey,Wales,-1,-1,-1,-1
-15,1623844800822,A,Olimpico in Rome - Rome,Italy,Switzerland,-1,-1,-1,-1
-16,1623909600822,C,National Arena Bucharest - Bucharest,Ukraine,North Macedonia,-1,-1,-1,-1
-17,1623920400822,B,Parken - Copenhagen,Denmark,Belgium,-1,-1,-1,-1
-18,1623931200822,C,Johan Cruijff ArenA - Amsterdam,Netherlands,Austria,-1,-1,-1,-1
-19,1623996000822,E,Saint Petersburg Stadium - St Petersburg,Sweden,Slovakia,-1,-1,-1,-1
-20,1624006800822,D,Hampden Park - Glasgow,Croatia,Czech Republic,-1,-1,-1,-1
-21,1624017600822,D,Wembley Stadium - London,England,Scotland,-1,-1,-1,-1
-22,1624082400822,F,Puskás Aréna - Budapest,Hungary,France,-1,-1,-1,-1
-23,1624093200822,F,Football Arena Munich - Munich,Portugal,Germany,-1,-1,-1,-1
-24,1624104000822,E,La Cartuja Stadium - Seville,Spain,Poland,-1,-1,-1,-1
-25,1624179600822,A,Olimpico in Rome - Rome,Italy,Wales,-1,-1,-1,-1
-26,1624179600822,A,Baku Olympic Stadium - Baku,Switzerland,Turkey,-1,-1,-1,-1
-27,1624266000822,C,National Arena Bucharest - Bucharest,Ukraine,Austria,-1,-1,-1,-1
-28,1624266000822,C,Johan Cruijff ArenA - Amsterdam,North Macedonia,Netherlands,-1,-1,-1,-1
-29,1624276800822,B,Saint Petersburg Stadium - St Petersburg,Finland,Belgium,-1,-1,-1,-1
-30,1624276800822,B,Parken - Copenhagen,Russia,Denmark,-1,-1,-1,-1
-31,1624363200822,D,Wembley Stadium - London,Czech Republic,England,-1,-1,-1,-1
-32,1624363200822,D,Hampden Park - Glasgow,Croatia,Scotland,-1,-1,-1,-1
-33,1624438800822,E,Saint Petersburg Stadium - St Petersburg,Sweden,Poland,-1,-1,-1,-1
-34,1624438800822,E,La Cartuja Stadium - Seville,Slovakia,Spain,-1,-1,-1,-1
-35,1624449600822,F,Football Arena Munich - Munich,Germany,Hungary,-1,-1,-1,-1
-36,1624449600822,F,Puskás Aréna - Budapest,Portugal,France,-1,-1,-1,-1
-37,1624698000822,Round of 16,Johan Cruijff ArenA Amsterdam,2nd in Group A,2nd in Group B,-1,-1,-1,-1
-38,1624708800822,Round of 16,Wembley Stadium London,1st in Group A,2nd in Group C,-1,-1,-1,-1
-39,1624784400822,Round of 16,Puskás Aréna Budapest,1st in Group C,3rd in Groups D/E or F,-1,-1,-1,-1
-40,1624795200822,Round of 16,La Cartuja Stadium Seville,1st in Group B,3rd in Groups A/D/E or F,-1,-1,-1,-1
-41,1624870800822,Round of 16,Parken Copenhagen,2nd in Group D,2nd in Group E,-1,-1,-1,-1
-42,1624881600822,Round of 16,National Arena Bucharest Bucharest,1st in Group F,3rd in Groups A/B or C,-1,-1,-1,-1
-43,1624957200822,Round of 16,Wembley Stadium London,1st in Group D,2nd in Group F,-1,-1,-1,-1
-44,1624968000822,Round of 16,Hampden Park Glasgow,1st in Group E,3rd in Groups A/B/C or D,-1,-1,-1,-1
-45,1625216400822,Quarter-finals,Saint Petersburg Stadium St Petersburg,Winner R16 match 6,Winner R16 match 5,-1,-1,-1,-1
-46,1625227200822,Quarter-finals,Football Arena Munich  Munich,Winner R16 match 4,Winner R16 match 2,-1,-1,-1,-1
-47,1625302800822,Quarter-finals,Baku Olympic Stadium Baku,Winner R16 match 3,Winner R16 match 1,-1,-1,-1,-1
-48,1625313600822,Quarter-finals,Olimpico in Rome Rome,Winner R16 match 8,Winner R16 match 7,-1,-1,-1,-1
-49,1625572800822,Semi-finals,Wembley Stadium London,Winner QF2,Winner QF1,-1,-1,-1,-1
-50,1625659200822,Semi-finals,Wembley Stadium London,Winner QF4,Winner QF3,-1,-1,-1,-1
-51,1626004800822,Final,Wembley Stadium London,Winner SF1,Winner SF2,-1,-1,-1,-1
+id,time,group,stadium,team1,team2,ftscore1,ftscore2,etscore1,etscore2,penscore1,penscore2
+1,1623412800822,A,Olimpico in Rome - Rome,Turkey,Italy,-1,-1,-1,-1,-1,-1
+2,1623477600822,A,Baku Olympic Stadium - Baku,Wales,Switzerland,-1,-1,-1,-1,-1,-1
+3,1623488400822,B,Parken - Copenhagen,Denmark,Finland,-1,-1,-1,-1,-1,-1
+4,1623499200822,B,Saint Petersburg Stadium - St Petersburg,Belgium,Russia,-1,-1,-1,-1,-1,-1
+5,1623564000822,D,Wembley Stadium - London,England,Croatia,-1,-1,-1,-1,-1,-1
+6,1623574800822,C,National Arena Bucharest - Bucharest,Austria,North Macedonia,-1,-1,-1,-1,-1,-1
+7,1623585600822,C,Johan Cruijff ArenA - Amsterdam,Netherlands,Ukraine,-1,-1,-1,-1,-1,-1
+8,1623650400822,D,Hampden Park - Glasgow,Scotland,Czech Republic,-1,-1,-1,-1,-1,-1
+9,1623661200822,E,Saint Petersburg Stadium - St Petersburg,Poland,Slovakia,-1,-1,-1,-1,-1,-1
+10,1623672000822,E,La Cartuja Stadium - Seville,Spain,Sweden,-1,-1,-1,-1,-1,-1
+11,1623747600822,F,Puskás Aréna - Budapest,Hungary,Portugal,-1,-1,-1,-1,-1,-1
+12,1623758400822,F,Football Arena Munich - Munich,France,Germany,-1,-1,-1,-1,-1,-1
+13,1623823200822,B,Saint Petersburg Stadium - St Petersburg,Finland,Russia,-1,-1,-1,-1,-1,-1
+14,1623834000822,A,Baku Olympic Stadium - Baku,Turkey,Wales,-1,-1,-1,-1,-1,-1
+15,1623844800822,A,Olimpico in Rome - Rome,Italy,Switzerland,-1,-1,-1,-1,-1,-1
+16,1623909600822,C,National Arena Bucharest - Bucharest,Ukraine,North Macedonia,-1,-1,-1,-1,-1,-1
+17,1623920400822,B,Parken - Copenhagen,Denmark,Belgium,-1,-1,-1,-1,-1,-1
+18,1623931200822,C,Johan Cruijff ArenA - Amsterdam,Netherlands,Austria,-1,-1,-1,-1,-1,-1
+19,1623996000822,E,Saint Petersburg Stadium - St Petersburg,Sweden,Slovakia,-1,-1,-1,-1,-1,-1
+20,1624006800822,D,Hampden Park - Glasgow,Croatia,Czech Republic,-1,-1,-1,-1,-1,-1
+21,1624017600822,D,Wembley Stadium - London,England,Scotland,-1,-1,-1,-1,-1,-1
+22,1624082400822,F,Puskás Aréna - Budapest,Hungary,France,-1,-1,-1,-1,-1,-1
+23,1624093200822,F,Football Arena Munich - Munich,Portugal,Germany,-1,-1,-1,-1,-1,-1
+24,1624104000822,E,La Cartuja Stadium - Seville,Spain,Poland,-1,-1,-1,-1,-1,-1
+25,1624179600822,A,Olimpico in Rome - Rome,Italy,Wales,-1,-1,-1,-1,-1,-1
+26,1624179600822,A,Baku Olympic Stadium - Baku,Switzerland,Turkey,-1,-1,-1,-1,-1,-1
+27,1624266000822,C,National Arena Bucharest - Bucharest,Ukraine,Austria,-1,-1,-1,-1,-1,-1
+28,1624266000822,C,Johan Cruijff ArenA - Amsterdam,North Macedonia,Netherlands,-1,-1,-1,-1,-1,-1
+29,1624276800822,B,Saint Petersburg Stadium - St Petersburg,Finland,Belgium,-1,-1,-1,-1,-1,-1
+30,1624276800822,B,Parken - Copenhagen,Russia,Denmark,-1,-1,-1,-1,-1,-1
+31,1624363200822,D,Wembley Stadium - London,Czech Republic,England,-1,-1,-1,-1,-1,-1
+32,1624363200822,D,Hampden Park - Glasgow,Croatia,Scotland,-1,-1,-1,-1,-1,-1
+33,1624438800822,E,Saint Petersburg Stadium - St Petersburg,Sweden,Poland,-1,-1,-1,-1,-1,-1
+34,1624438800822,E,La Cartuja Stadium - Seville,Slovakia,Spain,-1,-1,-1,-1,-1,-1
+35,1624449600822,F,Football Arena Munich - Munich,Germany,Hungary,-1,-1,-1,-1,-1,-1
+36,1624449600822,F,Puskás Aréna - Budapest,Portugal,France,-1,-1,-1,-1,-1,-1
+37,1624698000822,Round of 16,Johan Cruijff ArenA Amsterdam,2nd in Group A,2nd in Group B,-1,-1,-1,-1,-1,-1
+38,1624708800822,Round of 16,Wembley Stadium London,1st in Group A,2nd in Group C,-1,-1,-1,-1,-1,-1
+39,1624784400822,Round of 16,Puskás Aréna Budapest,1st in Group C,3rd in Groups D/E or F,-1,-1,-1,-1,-1,-1
+40,1624795200822,Round of 16,La Cartuja Stadium Seville,1st in Group B,3rd in Groups A/D/E or F,-1,-1,-1,-1,-1,-1
+41,1624870800822,Round of 16,Parken Copenhagen,2nd in Group D,2nd in Group E,-1,-1,-1,-1,-1,-1
+42,1624881600822,Round of 16,National Arena Bucharest Bucharest,1st in Group F,3rd in Groups A/B or C,-1,-1,-1,-1,-1,-1
+43,1624957200822,Round of 16,Wembley Stadium London,1st in Group D,2nd in Group F,-1,-1,-1,-1,-1,-1
+44,1624968000822,Round of 16,Hampden Park Glasgow,1st in Group E,3rd in Groups A/B/C or D,-1,-1,-1,-1,-1,-1
+45,1625216400822,Quarter-finals,Saint Petersburg Stadium St Petersburg,Winner R16 match 6,Winner R16 match 5,-1,-1,-1,-1,-1,-1
+46,1625227200822,Quarter-finals,Football Arena Munich  Munich,Winner R16 match 4,Winner R16 match 2,-1,-1,-1,-1,-1,-1
+47,1625302800822,Quarter-finals,Baku Olympic Stadium Baku,Winner R16 match 3,Winner R16 match 1,-1,-1,-1,-1,-1,-1
+48,1625313600822,Quarter-finals,Olimpico in Rome Rome,Winner R16 match 8,Winner R16 match 7,-1,-1,-1,-1,-1,-1
+49,1625572800822,Semi-finals,Wembley Stadium London,Winner QF2,Winner QF1,-1,-1,-1,-1,-1,-1
+50,1625659200822,Semi-finals,Wembley Stadium London,Winner QF4,Winner QF3,-1,-1,-1,-1,-1,-1
+51,1626004800822,Final,Wembley Stadium London,Winner SF1,Winner SF2,-1,-1,-1,-1,-1,-1

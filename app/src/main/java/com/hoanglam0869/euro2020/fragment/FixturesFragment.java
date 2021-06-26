@@ -15,12 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.R;
 import com.hoanglam0869.euro2020.adapter.FixturesAdapter;
-import com.hoanglam0869.euro2020.database.DBHelper;
+import com.hoanglam0869.euro2020.database.FixturesDBHelper;
+import com.hoanglam0869.euro2020.model.Fixtures;
+
+import java.util.ArrayList;
 
 public class FixturesFragment extends Fragment {
 
     View view;
     RecyclerView recyclerViewFixtures;
+    ArrayList<Fixtures> fixturesArrayList;
     FixturesAdapter adapter;
 
     private int lastPosition;
@@ -37,9 +41,9 @@ public class FixturesFragment extends Fragment {
 
         recyclerViewFixtures = view.findViewById(R.id.recyclerViewFixtures);
 
-        MainActivity.fixturesArrayList = DBHelper.getFixtures(getActivity());
+        fixturesArrayList = FixturesDBHelper.getFixtures(getActivity());
 
-        adapter = new FixturesAdapter(getContext(), MainActivity.fixturesArrayList);
+        adapter = new FixturesAdapter(getContext(), fixturesArrayList);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);

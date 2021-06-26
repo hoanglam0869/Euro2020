@@ -14,7 +14,8 @@ import androidx.annotation.NonNull;
 
 import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.R;
-import com.hoanglam0869.euro2020.database.DBHelper;
+import com.hoanglam0869.euro2020.database.TeamsDBHelper;
+import com.hoanglam0869.euro2020.database.FixturesDBHelper;
 import com.hoanglam0869.euro2020.model.Fixtures;
 import com.hoanglam0869.euro2020.utils.Flags;
 import com.hoanglam0869.euro2020.utils.Teams;
@@ -45,12 +46,12 @@ public class ScoreDialog extends Dialog {
         imgTeam1.setImageResource(Flags.getFlag(fixtures.getTeam1()));
         imgTeam2.setImageResource(Flags.getFlag(fixtures.getTeam2()));
 
-        if (fixtures.getScore1() == -1 && fixtures.getScore2() == -1) {
+        if (fixtures.getFtScore1() == -1 && fixtures.getFtScore2() == -1) {
             edtScore1.setText("");
             edtScore2.setText("");
         } else {
-            edtScore1.setText(String.valueOf(fixtures.getScore1()));
-            edtScore2.setText(String.valueOf(fixtures.getScore2()));
+            edtScore1.setText(String.valueOf(fixtures.getFtScore1()));
+            edtScore2.setText(String.valueOf(fixtures.getFtScore2()));
         }
 
         imgClose.setOnClickListener(new View.OnClickListener() {
@@ -70,15 +71,15 @@ public class ScoreDialog extends Dialog {
                     int score1 = Integer.parseInt(strScore1);
                     int score2 = Integer.parseInt(strScore2);
 
-                    fixtures.setScore1(score1);
-                    fixtures.setScore2(score2);
+                    fixtures.setFtScore1(score1);
+                    fixtures.setFtScore2(score2);
                 } else {
-                    fixtures.setScore1(-1);
-                    fixtures.setScore2(-1);
+                    fixtures.setFtScore1(-1);
+                    fixtures.setFtScore2(-1);
                 }
-                DBHelper.updateScore(mainActivity, fixtures);
+                FixturesDBHelper.updateScore(mainActivity, fixtures);
                 mainActivity.getGroups();
-                DBHelper.setRoundOf16Teams(mainActivity);
+                FixturesDBHelper.setRoundOf16Teams(mainActivity);
 
                 dismiss();
             }

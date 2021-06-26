@@ -8,12 +8,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.hoanglam0869.euro2020.database.DBHelper;
+import com.hoanglam0869.euro2020.database.TeamsDBHelper;
 import com.hoanglam0869.euro2020.fragment.FixturesFragment;
 import com.hoanglam0869.euro2020.fragment.MoreFragment;
 import com.hoanglam0869.euro2020.fragment.TableFragment;
 import com.hoanglam0869.euro2020.fragment.TeamFragment;
-import com.hoanglam0869.euro2020.model.Fixtures;
 import com.hoanglam0869.euro2020.model.Team;
 import com.hoanglam0869.euro2020.model.Third;
 import com.hoanglam0869.euro2020.utils.Settings;
@@ -30,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     public TextView txv3RD;
     SmoothBottomBar bottomBar;
 
-    public static ArrayList<Fixtures> fixturesArrayList;
     public static ArrayList<Team> teamArrayList;
     public static ArrayList<Team> groupA;
     public static ArrayList<Team> groupB;
@@ -82,22 +80,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getGroups() {
-        DBHelper.updateTeam(this);
+        //TeamsDBHelper.updateTeam(this, teamArrayList);
         //DBHelper.setHeadToHeadPoints(this);
 
-        groupA = DBHelper.getTeamsByGroup(this, "A");
-        groupB = DBHelper.getTeamsByGroup(this, "B");
-        groupC = DBHelper.getTeamsByGroup(this, "C");
-        groupD = DBHelper.getTeamsByGroup(this, "D");
-        groupE = DBHelper.getTeamsByGroup(this, "E");
-        groupF = DBHelper.getTeamsByGroup(this, "F");
+        groupA = TeamsDBHelper.getTeamsByGroup(this, "A");
+        groupB = TeamsDBHelper.getTeamsByGroup(this, "B");
+        groupC = TeamsDBHelper.getTeamsByGroup(this, "C");
+        groupD = TeamsDBHelper.getTeamsByGroup(this, "D");
+        groupE = TeamsDBHelper.getTeamsByGroup(this, "E");
+        groupF = TeamsDBHelper.getTeamsByGroup(this, "F");
 
-        groupThirdPlaced = DBHelper.getThirdPlacedTeams(this, 6);
+        groupThirdPlaced = TeamsDBHelper.getThirdPlacedTeams(this);
         groupThirdPlacedFourTeams = ThirdPlaced.getThirdPlacedFourTeams();
     }
 
     private void getTeams() {
-        teamArrayList = DBHelper.getTeams(this);
+        teamArrayList = TeamsDBHelper.getTeams(this);
         combinations = ThirdPlaced.getCombinations();
     }
 

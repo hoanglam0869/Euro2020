@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hoanglam0869.euro2020.MainActivity;
 import com.hoanglam0869.euro2020.R;
-import com.hoanglam0869.euro2020.database.DBHelper;
+import com.hoanglam0869.euro2020.database.FixturesDBHelper;
 import com.hoanglam0869.euro2020.dialog.ScoreDialog;
 import com.hoanglam0869.euro2020.model.Fixtures;
 import com.hoanglam0869.euro2020.utils.Flags;
@@ -115,8 +115,8 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         holder.txvTeam1.setText(Teams.getTeamName(context, fixtures.getTeam1()));
         holder.txvTeam2.setText(Teams.getTeamName(context, fixtures.getTeam2()));
 
-        if (fixtures.getScore1() != -1 && fixtures.getScore2() != -1) {
-            String score = fixtures.getScore1() + "-" + fixtures.getScore2();
+        if (fixtures.getFtScore1() != -1 && fixtures.getFtScore2() != -1) {
+            String score = fixtures.getFtScore1() + "-" + fixtures.getFtScore2();
             holder.txvScore.setText(score);
         } else {
             holder.txvScore.setText("-");
@@ -163,7 +163,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                     scoreDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                         @Override
                         public void onDismiss(DialogInterface dialog) {
-                            fixturesArrayList = DBHelper.getFixtures((MainActivity) context);
+                            fixturesArrayList = FixturesDBHelper.getFixtures((MainActivity) context);
                             notifyDataSetChanged();
                         }
                     });
